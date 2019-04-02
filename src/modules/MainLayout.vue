@@ -1,18 +1,19 @@
 <template>
-  <div>
-    <PokedexLayout/>
+  <div class="main-layout">
+    <router-view></router-view>
+    <menu-layout></menu-layout>
   </div>
 </template>
 
 
 <script>
-import PokedexLayout from './pokedex/views/PokedexLayout.vue'
+import MenuLayout from './menu/MenuLayout.vue'
 
 export default {
   name: 'MainLayout',
 
   components: {
-    PokedexLayout
+    "menu-layout": MenuLayout
   }
 
 }
@@ -20,5 +21,7 @@ export default {
 
 
 <style scoped lang="scss">
+
+
 
 </style>

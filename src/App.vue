@@ -24,7 +24,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  padding-top: 10vh;
   color: $poke-scarlett-light;
   font-family: $font-family-main, 'Avenir', sans-serif;
   text-align: center;

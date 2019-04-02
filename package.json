@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "animate.css": "^3.7.0",
-    "bootstrap": "^4.3.1",
     "font-awesome": "^4.7.0",
     "node-sass": "^4.11.0",
     "sass-loader": "^7.1.0",
