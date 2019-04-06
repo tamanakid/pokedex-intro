@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import MainLayout from './modules/MainLayout.vue'
+import MainLayout from './modules/app/MainLayout.vue'
 
 export default {
   name: 'app',
@@ -16,6 +16,10 @@ export default {
 </script>
 
 <style lang="scss">
+* {
+  margin: 0;
+}
+
 body {
   background-color: $poke-black-bg;
 }

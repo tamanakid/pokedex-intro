@@ -1,0 +1,69 @@
+
+/**
+ * MEDIA QUERY MIXINS
+ */
+ @mixin media-mp() {
+	@media #{$mq-mp} {
+		@content;
+	}
+}
+
+@mixin media-ml() {
+	@media #{$mq-ml} {
+		@content;
+	}
+}
+
+@mixin media-tp() {
+	@media #{$mq-tp} {
+		@content;
+	}
+}
+
+@mixin media-tl() {
+	@media #{$mq-tl} {
+		@content;
+	}
+}
+
+@mixin media-d() {
+	@media #{$mq-d} {
+		@content;
+	}
+}
+
+@mixin media-ml-up() {
+	@media #{$mq-ml-up} {
+		@content;
+	}
+}
+
+@mixin media-tp-up() {
+	@media #{$mq-tp-up} {
+		@content;
+	}
+}
+
+@mixin media-tl-up() {
+	@media #{$mq-tl-up} {
+		@content;
+	}
+}
+
+@mixin media-ml-down() {
+	@media #{$mq-ml-down} {
+		@content;
+	}
+}
+
+@mixin media-tp-down() {
+	@media #{$mq-tp-down} {
+		@content;
+	}
+}
+
+@mixin media-tl-down() {
+	@media #{$mq-tl-down} {
+		@content;
+	}
+}

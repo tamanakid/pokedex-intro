@@ -1,7 +1,25 @@
-// FONTS
+// FONT FAMILIES
 @import url('https://fonts.googleapis.com/css?family=Audiowide|Iceland|Gruppo');
 $font-family-main: 'Audiowide', serif;
-$font-family-text: 'Gruppo', sans-serif; 
+$font-family-text: 'Gruppo', sans-serif;
+
+
+// MEDIA QUERIES
+// m:mobile - t:tablet - d:desktop - p:portrait - l:landscape
+$mq-mp: screen and (max-width: 425px);
+$mq-ml: screen and (min-width: 426px) and (max-width: 767px);
+$mq-tp: screen and (min-width: 768px) and (max-width: 991px);
+$mq-tl: screen and (min-width: 992px) and (max-width: 1199px);
+$mq-d: screen and (min-width: 1200px);
+
+$mq-ml-up: screen and (min-width: 426px);
+$mq-tp-up: screen and (min-width: 768px);
+$mq-tl-up: screen and (min-width: 992px);
+
+$mq-ml-down: screen and (max-width: 767px);
+$mq-tp-down: screen and (max-width: 991px);
+$mq-tl-down: screen and (max-width: 1199px);
+
 
 
 // FONT TYPES

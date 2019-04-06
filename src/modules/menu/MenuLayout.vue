@@ -1,6 +1,10 @@
 <template>
-  <div class="menu-container">
-    <p>Menu</p>
+  <div class="menu">
+    <div class="menu__title">
+      <span class="menu__title__text">Menu</span>
+      <span class="menu__title__toggle">x</span>
+    </div>
+    
   </div>
 </template>
 
@@ -14,8 +18,9 @@ export default {
 </script>
 
 
-<style scoped lang="scss">
+<style scoped lang="scss" src="./menu-layout.scss">
 
+/*
 .menu-container {
     height: 100vh;
     display: flex;
@@ -23,5 +28,6 @@ export default {
     justify-content: center;
     background-color: $poke-scarlett-dark;
 }
+*/
 
 </style>

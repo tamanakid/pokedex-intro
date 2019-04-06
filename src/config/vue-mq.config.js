@@ -4,11 +4,11 @@ import VueMq from 'vue-mq'
 const mqConfig = () => {
     Vue.use(VueMq, {
         breakpoints: {
-            xs: 426,
-            sm: 768,
-            md: 992,
-            lg: 1200,
-            xl: Infinity
+            mp: 426,
+            ml: 768,
+            tp: 992,
+            tl: 1200,
+            d: Infinity
         }
     });
 }

@@ -1,0 +1,28 @@
+.menu {
+
+	// Menu Bar @tp-down
+	@include media-tp-down {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+
+		&__title {
+			height: 4rem;
+			display: grid;
+			grid-template-columns: 1fr 6fr 1fr;
+			grid-template-areas: ". text toggle";
+			align-content: center;
+
+			&__text {
+				grid-area: text;
+			}
+
+			&__toggle {
+				grid-area: toggle;
+			}
+		}
+
+	}
+
+}
