@@ -1,7 +1,7 @@
 <template>
   <div>
     <menu-layout class="layout__menu"></menu-layout>
-    <router-view class="layou__content"></router-view>
+    <router-view class="layout__content"></router-view>
   </div>
 </template>
 
@@ -26,4 +26,18 @@ export default {
 	background-color: $poke-scarlett-dark;
 }
 */
+
+
+.layout__content {
+	
+	@include media-tp-down {
+		padding: 5rem;
+	}
+
+	@include media-tl-up {
+		padding: 2rem;
+		width: 80%;
+	}
+}
+
 </style>

@@ -2,12 +2,14 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 
 import PokedexLayout from '@/modules/pokedex/PokedexLayout.vue'
+import FavoritesLayout from '@/modules/favorites/FavoritesLayout.vue'
 
 Vue.use(VueRouter);
 
 const routes = [
     { path: "/", redirect: { name: "pokedex" } },
-    { name: "pokedex", path: "/pokedex", component: PokedexLayout }
+    { name: "pokedex", path: "/pokedex", component: PokedexLayout },
+    { name: "favorites", path: "/favorites", component: FavoritesLayout }
 ]
 
 const router = new VueRouter({

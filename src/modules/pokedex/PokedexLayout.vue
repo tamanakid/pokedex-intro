@@ -18,11 +18,13 @@ export default {
 </script>
 
 <style scoped lang="scss">
+/* This margin should be in the layout
 .pokedex {
 	@include media-tp-down {
 		margin: 5rem;
 	}
 }
+*/
 
 .tal {
 	font: $font-subtitle;

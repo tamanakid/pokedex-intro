@@ -1,50 +1,42 @@
 <template>
   <div class="menu">
+
     <div class="menu__title">
       <div class="menu__title__text">
         <span>Pokedex</span>
       </div>
       <div class="menu__title__toggle" v-if="isTpDown" v-on:click="onToggleMenu">
-        <i class="fa fa-caret-square-o-down fa-lg" aria-hidden="true"></i>
+        <i class="fa fa-lg" v-bind:class="caretSquareClass" aria-hidden="true"></i>
       </div>
     </div>
+
     <template v-if="isTpDown">
       <transition name="menu__contents_toggle">
-        <!-- must create new condition (showMenuContents) based on isMenuToggled and $mq-->
         <div class="menu__contents" v-show="isMenuToggled">
-          <div class="menu__contents__item">
-            <span>National Pokedex</span>
-          </div>
-          <div class="menu__contents__item">
-            <span>Register Pokemon</span>
-          </div>
-          <div class="menu__contents__item">
-            <span>Favorites</span>
-          </div>
+          <menu-contents></menu-contents>
         </div>
       </transition>
     </template>
     <template v-else>
       <div class="menu__contents">
-        <div class="menu__contents__item">
-          <span>National Pokedex</span>
-        </div>
-        <div class="menu__contents__item">
-          <span>Register Pokemon</span>
-        </div>
-        <div class="menu__contents__item">
-          <span>Favorites</span>
-        </div>
+        <menu-contents></menu-contents>
       </div>
     </template>
+
   </div>
 </template>
 
 
+
 <script>
+import MenuContentsView from './MenuContentsView.vue';
 
 export default {
   name: 'MenuLayout',
+
+  components: {
+    "menu-contents": MenuContentsView
+  },
 
   data: function() {
     return {
@@ -56,6 +48,10 @@ export default {
   computed: {
     isTpDown: function() {
       return this.mediaTpDown.includes(this.$mq);
+    },
+
+    caretSquareClass: function() {
+      return this.isMenuToggled ? "fa-caret-square-o-up": "fa-caret-square-o-down";
     }
   },
 
@@ -69,16 +65,5 @@ export default {
 </script>
 
 
-<style scoped lang="scss" src="./menu-layout.scss">
 
-/*
-.menu-container {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background-color: $poke-scarlett-dark;
-}
-*/
-
-</style>
+<style scoped lang="scss" src="./menu-layout.scss"></style>
