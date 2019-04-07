@@ -1,6 +1,13 @@
-// npm depencies
+// NPM DEPENDENCIES
+
+// Animate CSS
 @import '~animate.css/animate.min.css';
 
-// global styles
+// Font-Awesome
+$fa-font-path: '~font-awesome/fonts';
+@import '~font-awesome/scss/font-awesome';
+
+
+// GLOBAL STYLES
 @import './variables';
 @import './mixins';
