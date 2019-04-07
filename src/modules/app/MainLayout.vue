@@ -1,7 +1,7 @@
 <template>
   <div>
-    <menu-layout class="layout-menu"></menu-layout>
-    <router-view class="layout-content"></router-view>
+    <menu-layout class="layout__menu"></menu-layout>
+    <router-view class="layou__content"></router-view>
   </div>
 </template>
 
@@ -21,7 +21,9 @@ export default {
 
 
 <style scoped lang="scss">
-.layout-menu {
+/*
+.layout__menu {
 	background-color: $poke-scarlett-dark;
 }
+*/
 </style>
