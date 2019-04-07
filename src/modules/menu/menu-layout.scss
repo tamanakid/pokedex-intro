@@ -1,8 +1,8 @@
 .menu {
+	position: fixed;
 
 	// Menu Bar @tp-down
 	@include media-tp-down {
-		position: fixed;
 		top: 0;
 		left: 0;
 		width: 100%;
@@ -15,6 +15,7 @@
 			grid-template-columns: 1fr 6fr 1fr;
 			grid-template-areas: ". text toggle";
 			place-items: center;
+			background-color: $poke-scarlett-dark;
 
 			&__text {
 				grid-area: text;
@@ -39,21 +40,6 @@
 			  transform: translateY(-100%);
 			}
 
-			/* Better use Vue Transitions
-			&_toggled {
-				&-on {
-					visibility: visible;
-					transform: translateY(0);
-					transition: transform 0.5s ease-in-out;	
-				}
-				&-off {
-					visibility: hidden;
-					transform: translateY(-100%);
-					transition: transform 0.5s ease-in-out, visibility 0s 0.5s;
-				}
-			}
-			*/
-
 			&__item {
 				display: flex;
 				flex-direction: column;
@@ -61,20 +47,32 @@
 				align-items: center;
 				width: 100%;
 				height: 3rem;
-				
-				/*
-				&:hover {
-					background-color: $poke-scarlett-dark;
-					transition: background-color 0.5s ease;
-				}
-				*/
 			}
 		}
-
 	}
 
-}
+	// Menu Bar @tl-up
+	@include media-tl-up {
+		top: 0;
+		left: 80%;
+		width: 20%;
+		height: 100vh;
+		display: grid;
+		grid-template-rows: 1fr 4fr 1fr;
+		grid-template-areas:
+			"title"
+			"content"
+			".";
+		place-items: center;
+		background-color: $poke-scarlett-dark;
 
-.menu__title {
-	background-color: $poke-scarlett-dark;
+		&__title {
+			grid-area: title;
+		}
+
+		&__content {
+			grid-area: content;
+		}
+	}
+
 }

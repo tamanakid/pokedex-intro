@@ -4,12 +4,28 @@
       <div class="menu__title__text">
         <span>Pokedex</span>
       </div>
-      <div class="menu__title__toggle" v-on:click="onToggleMenu">
+      <div class="menu__title__toggle" v-if="isTpDown" v-on:click="onToggleMenu">
         <i class="fa fa-caret-square-o-down fa-lg" aria-hidden="true"></i>
       </div>
     </div>
-    <transition name="menu__contents_toggle">
-      <div class="menu__contents" v-show="isMenuToggled">
+    <template v-if="isTpDown">
+      <transition name="menu__contents_toggle">
+        <!-- must create new condition (showMenuContents) based on isMenuToggled and $mq-->
+        <div class="menu__contents" v-show="isMenuToggled">
+          <div class="menu__contents__item">
+            <span>National Pokedex</span>
+          </div>
+          <div class="menu__contents__item">
+            <span>Register Pokemon</span>
+          </div>
+          <div class="menu__contents__item">
+            <span>Favorites</span>
+          </div>
+        </div>
+      </transition>
+    </template>
+    <template v-else>
+      <div class="menu__contents">
         <div class="menu__contents__item">
           <span>National Pokedex</span>
         </div>
@@ -20,7 +36,7 @@
           <span>Favorites</span>
         </div>
       </div>
-    </transition>
+    </template>
   </div>
 </template>
 
@@ -32,17 +48,16 @@ export default {
 
   data: function() {
     return {
-      isMenuToggled: false
+      isMenuToggled: false,
+      mediaTpDown: ["mp", "ml", "tp"]
     };
   },
 
-  /*
   computed: {
-    menuToggleClass: function() {
-      return this.isMenuToggled ? 'menu__contents_toggled-on' : 'menu__contents_toggled-off';
+    isTpDown: function() {
+      return this.mediaTpDown.includes(this.$mq);
     }
   },
-  */
 
   methods: {
     onToggleMenu: function() {
