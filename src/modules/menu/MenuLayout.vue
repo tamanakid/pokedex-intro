@@ -55,9 +55,17 @@ export default {
     }
   },
 
+  watch: {
+    '$route': 'closeOnNavigation'
+  },
+
   methods: {
     onToggleMenu: function() {
       this.isMenuToggled = !this.isMenuToggled;
+    },
+
+    closeOnNavigation: function() {
+      this.isMenuToggled = false;
     }
   }
 
