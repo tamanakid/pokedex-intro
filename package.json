@@ -3,14 +3,18 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
+    "serve": "npm run db-serve | npm run front-serve",
+    "db-serve": "json-server --watch ./json-db/db.json",
+    "front-serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "test": "jest --config ./tests/jest.config.js --coverage"
   },
   "dependencies": {
     "animate.css": "^3.7.0",
+    "axios": "^0.18.0",
     "font-awesome": "^4.7.0",
+    "json-server": "^0.14.2",
     "node-sass": "^4.11.0",
     "sass-loader": "^7.1.0",
     "vee-validate": "^2.2.0",
@@ -30,7 +34,6 @@
     "eslint-plugin-vue": "^5.0.0",
     "jest": "^24.5.0",
     "jest-serializer-vue": "^2.0.2",
-    "json-schema-faker": "^0.5.0-rc16",
     "vue-jest": "^3.0.4",
     "vue-template-compiler": "^2.5.21",
     "vue-test-utils": "^1.0.0-beta.11"
