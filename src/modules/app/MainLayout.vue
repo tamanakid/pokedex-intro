@@ -35,7 +35,7 @@ export default {
 	}
 
 	@include media-tl-up {
-		padding: 2rem;
+		padding: 4rem 2rem;
 		width: 80%;
 	}
 }

@@ -31,5 +31,11 @@ body {
   color: $poke-scarlett-light;
   font-family: $font-family-main, 'Avenir', sans-serif;
   text-align: center;
+
+  // This might be a bit dangerous (was added after the menu was done)
+  & * {
+    box-sizing: border-box;
+  }
+
 }
 </style>

@@ -5,7 +5,7 @@ const actions = {
 
   // Perhaps it is better to do the actual filtering in a global util?
   fetchPokedex: ({ commit }) => {
-    axios.get("http://localhost:3000/pokemon")
+    axios.get("http://localhost:3000/pokemon-summary")
       .then(response => {
         commit('setPokedex', response.data);
       })

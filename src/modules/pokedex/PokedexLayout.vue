@@ -1,12 +1,28 @@
 <template>
 	<div class="pokedex">
-		<h3>Pokedex</h3>
-		<p class="tal">Pokedex Layout</p>
-		<div v-for="pokemon in pokedexPage" v-bind:key="pokemon.id">
-			<p>{{ pokemon.name }}</p>
+		<div class="pokedex__title">
+			<span>National Pokedex</span>
+		</div>
+		<div class="pokedex__poke-list" >
+
+			<div class="pokedex__pokemon" v-for="pokemon in pokedexPage" v-bind:key="pokemon.id">
+				<div class="pokedex__pokemon__top" v-bind:class="'type_' + type">
+					<span>{{ pokemon.name }}</span>
+					<span>{{ getRegnum(pokemon.regnum) }}</span>
+				</div>
+
+				<div v-for="type in pokemon.types" v-bind:key="type">
+					<!-- the bound 'type_grass' classes must be global, probably from a mixin -->
+					<div class="pokedex__pokemon__type" v-bind:class="'type_' + type.toLowerCase()">
+						<span>{{ type }}</span>
+					</div>
+				</div>
+
+			</div>
 		</div>
 	</div>
 </template>
+
 
 <script>
 //import HelloWorld from './components/HelloWorld.vue'
@@ -17,15 +33,15 @@ export default {
 	components: {
 		//HelloWorld
 	},
-	
+
+	beforeCreate: function() {
+		this.$store.dispatch('pokedex/fetchPokedex');
+	},
+
 	data: function() {
 		return {
 			currentPage: 0
 		};
-	},
-	
-	beforeCreate: function() {
-		this.$store.dispatch('pokedex/fetchPokedex');
 	},
 
 	computed: {
@@ -40,23 +56,14 @@ export default {
 			return pokedex.slice((this.currentPage)*10, (this.currentPage + 1)*10);
 		},
 
+		getRegnum: function(regnum) {
+			return "#" + regnum;
+		}
 	}
-
 
 }
 </script>
 
-<style scoped lang="scss">
-/* This margin should be in the layout
-.pokedex {
-	@include media-tp-down {
-		margin: 5rem;
-	}
-}
-*/
 
-.tal {
-	font: $font-subtitle;
-	color: $poke-scarlett-light;
-}
+<style scoped lang="scss" src="./pokedex-layout.scss">
 </style>

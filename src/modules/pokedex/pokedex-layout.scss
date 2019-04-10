@@ -1,0 +1,37 @@
+/* This margin should be in the layout
+.pokedex {
+	@include media-tp-down {
+		margin: 5rem;
+	}
+}
+*/
+
+.pokedex__title {
+	font-size: 2rem;
+	padding-bottom: 2rem;
+}
+
+.pokedex__pokemon {
+	border: 1px solid $poke-scarlett-light;
+	border-radius: 10px;
+	padding: 3rem;
+	margin: 3rem 0;
+
+	display: grid
+
+	&__top {
+		// better change this in separate variables. font-family and font-size
+		font: $font-subtitle;
+	}
+
+	&__type {
+		font-family: $font-family-text;
+	}
+	
+}
+
+
+.tal {
+	font: $font-subtitle;
+	color: $poke-scarlett-light;
+}
