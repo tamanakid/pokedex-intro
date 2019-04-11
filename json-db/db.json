@@ -6,7 +6,8 @@
       "regnum": 1,
       "types": ["Grass", "Poison"],
       "height": "2'04''",
-      "weight": "15.2"
+      "weight": "15.2",
+      "img": "https://cdn.bulbagarden.net/upload/2/21/001Bulbasaur.png"
     },
     {
       "id": 2,
@@ -14,7 +15,8 @@
       "regnum": 2,
       "types": ["Grass", "Poison"],
       "height": "3'03''",
-      "weight": "28.7"
+      "weight": "28.7",
+      "img": "https://cdn.bulbagarden.net/upload/7/73/002Ivysaur.png"
     },
     {
       "id": 3,
@@ -22,7 +24,8 @@
       "regnum": 3,
       "types": ["Grass", "Poison"],
       "height": "6'07''",
-      "weight": "220.5"
+      "weight": "220.5",
+      "img": "https://cdn.bulbagarden.net/upload/a/ae/003Venusaur.png"
     },
     {
       "id": 4,
@@ -30,7 +33,8 @@
       "regnum": 4,
       "types": ["Fire"],
       "height": "2'00''",
-      "weight": "18.7"
+      "weight": "18.7",
+      "img": "https://cdn.bulbagarden.net/upload/f/f0/014Kakuna.png"
     },
     {
       "id": 5,
@@ -38,7 +42,8 @@
       "regnum": 5,
       "types": ["Fire"],
       "height": "3'07''",
-      "weight": "41.9"
+      "weight": "41.9",
+      "img": "https://cdn.bulbagarden.net/upload/f/f0/014Kakuna.png"
     },
     {
       "id": 6,
@@ -46,52 +51,89 @@
       "regnum": 6,
       "types": ["Fire", "Flying"],
       "height": "5'07'",
-      "weight": "199.5"
+      "weight": "199.5",
+      "img": "https://cdn.bulbagarden.net/upload/f/f0/014Kakuna.png"
     },
     {
       "id": 7,
       "name": "Squirtle",
-      "regnum": 7
+      "regnum": 7,
+      "types": ["Water"],
+      "height": "1'08''",
+      "weight": "19.8",
+      "img": "https://cdn.bulbagarden.net/upload/f/f0/014Kakuna.png"
     },
     {
       "id": 8,
       "name": "Wartortle",
-      "regnum": 8
+      "regnum": 8,
+      "types": ["Water"],
+      "height": "3'03''",
+      "weight": "49.6",
+      "img": "https://cdn.bulbagarden.net/upload/f/f0/014Kakuna.png"
     },
     {
       "id": 9,
       "name": "Blastoise",
-      "regnum": 9
+      "regnum": 9,
+      "types": ["Water"],
+      "height": "5'03''",
+      "weight": "188.5",
+      "img": "https://cdn.bulbagarden.net/upload/f/f0/014Kakuna.png"
     },
     {
       "id": 10,
       "name": "Caterpie",
-      "regnum": 10
+      "regnum": 10,
+      "types": ["Bug"],
+      "height": "1'00''",
+      "weight": "6.4",
+      "img": "https://cdn.bulbagarden.net/upload/f/f0/014Kakuna.png"
     },
     {
       "id": 11,
       "name": "Metapod",
-      "regnum": 11
+      "regnum": 11,
+      "types": ["Bug"],
+      "height": "2'04''",
+      "weight": "21.8",
+      "img": "https://cdn.bulbagarden.net/upload/f/f0/014Kakuna.png"
     },
     {
       "id": 12,
       "name": "Butterfree",
-      "regnum": 12
+      "regnum": 12,
+      "types": ["Bug", "Flying"],
+      "height": "3'07''",
+      "weight": "70.5",
+      "img": "https://cdn.bulbagarden.net/upload/f/f0/014Kakuna.png"
     },
     {
       "id": 13,
       "name": "Weedle",
-      "regnum": 13
+      "regnum": 13,
+      "types": ["Bug", "Poison"],
+      "height": "1'00'",
+      "weight": "7.1",
+      "img": "https://cdn.bulbagarden.net/upload/f/f0/014Kakuna.png"
     },
     {
       "id": 14,
       "name": "Kakuna",
-      "regnum": 14
+      "regnum": 14,
+      "types": ["Bug", "Poison"],
+      "height": "2'00''",
+      "weight": "22.0",
+      "img": "https://cdn.bulbagarden.net/upload/f/f0/014Kakuna.png"
     },
     {
       "id": 15,
       "name": "Beedrill",
-      "regnum": 15
+      "regnum": 15,
+      "types": ["Bug", "Poison"],
+      "height": "3'03''",
+      "weight": "65.0",
+      "img": "https://cdn.bulbagarden.net/upload/f/f0/014Kakuna.png"
     }
   ]
 }

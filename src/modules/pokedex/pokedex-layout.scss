@@ -11,23 +11,45 @@
 	padding-bottom: 2rem;
 }
 
+.pokedex__poke-list {
+}
+
 .pokedex__pokemon {
 	border: 1px solid $poke-scarlett-light;
-	border-radius: 10px;
-	padding: 3rem;
+	border-radius: 30px;
 	margin: 3rem 0;
+	height: 30vh;
 
-	display: grid
-
-	&__top {
-		// better change this in separate variables. font-family and font-size
-		font: $font-subtitle;
-	}
-
-	&__type {
-		font-family: $font-family-text;
-	}
+	display: grid;
+	grid-template-columns: 2fr 6fr 1fr;
+	grid-template-areas: "img content .";
+	place-items: center;
 	
+
+	&__img {
+		grid-area: img;
+		width: 70%;
+		min-width: 80px;
+		max-width: 200px;
+		&_image {
+			background: radial-gradient(rgba(0, 0, 0, 0.7) 30%, rgba(0, 0, 0, 0) 75%);
+			width: 100%;
+		}
+	}
+
+	&__content {
+		grid-area: content;
+
+		&__top {
+			// better change this in separate variables. font-family and font-size
+			font: $font-subtitle;
+		}
+	
+		&__type {
+			font-family: $font-family-text;
+		}
+	}
+
 }
 
 
