@@ -13,4 +13,12 @@ const mqConfig = () => {
     });
 }
 
-export { mqConfig as default };
+const mqLayouts = {
+    mediaMlDown: ["mp", "ml"],
+    mediaTpDown: ["mp", "ml", "tp"]
+}
+
+export { 
+    mqConfig,
+    mqLayouts 
+};

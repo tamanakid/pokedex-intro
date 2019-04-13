@@ -29,9 +29,10 @@ export default {
 
 
 .layout__content {
+  min-height: 100vh;
 	
 	@include media-tp-down {
-		padding: 5rem;
+		padding: 5rem 2rem;
 	}
 
 	@include media-tl-up {

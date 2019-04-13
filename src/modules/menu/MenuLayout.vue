@@ -30,6 +30,7 @@
 
 <script>
 import MenuContentsView from './MenuContentsView.vue';
+import { mqLayouts } from '@/config/vue-mq.config';
 
 export default {
   name: 'MenuLayout',
@@ -40,14 +41,13 @@ export default {
 
   data: function() {
     return {
-      isMenuToggled: false,
-      mediaTpDown: ["mp", "ml", "tp"]
+      isMenuToggled: false
     };
   },
 
   computed: {
     isTpDown: function() {
-      return this.mediaTpDown.includes(this.$mq);
+      return mqLayouts.mediaTpDown.includes(this.$mq);
     },
 
     caretSquareClass: function() {
