@@ -56,6 +56,7 @@
 		display: grid;
 		justify-items: center;
 		place-items: center;
+		// this shouldn't be for all mq's
 		border-radius: 1rem 0 0 1rem;
 		border-width: 1px 0 1px 1px;
 		//border-style: solid;
@@ -140,21 +141,40 @@
 				align-content: center;
 			}
 		}
+	}
 
+
+
+
+
+
+	@include media-tl {
+		&__list {
+			grid-template-columns: 1fr 1fr;
+		}
+	}	
+
+	@include media-d {
+		&__list {
+			grid-template-columns: 1fr 1fr 1fr;
+		}
+	}
 		
-		
+	@include media-tl-up {	
 
 		&__list {
 			font-size: 1.25vw;
 			overflow-y: scroll;
+			overflow-x: hidden;
 			display: grid;
-			grid-template-columns: 1fr 1fr 1fr;
 			grid-auto-rows: 4em;
 			grid-gap: 1.5em;
 			justify-items: stretch;
 			align-items: stretch;
 			padding: 1.5em;
 			font-family: $font-family-text;
+
+			background: linear-gradient(rgba($poke-scarlett-light, 0.1), $poke-black-bg 3.5%, $poke-black-bg 96.5%, rgba($poke-scarlett-light, 0.2) 100%);
 
 			
 
@@ -195,20 +215,105 @@
 
 
 
-	@include media-tp {
 
+
+	@include media-tp-down {
+		grid-template-columns: 100%;
+		grid-row-gap: 4vh;
+		grid-template-areas:
+			"title"
+			"box"
+			"list";
+		
 		&__title {
 			font-size: 1.6rem;
 			//padding: 2rem 0;
 		}
+
+		&__box {
+			
+		}
+
+		// almost everything is equal (except padding and what?)
+		// mobile will be somewhat different
+		&__list {
+			font-size: 1.25rem;
+			overflow-y: scroll;
+			font-family: $font-family-text;
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			grid-auto-rows: 4em;
+			grid-gap: 2em;
+			justify-items: stretch;
+			align-items: stretch;
+			padding: 1.5em;
+			
+			&__pokemon {
+				display: grid;
+				grid-template-columns: auto 1fr;
+				grid-template-rows: 1em 1em;
+				grid-template-areas:
+					"icon name"
+					"icon regnum";
+				align-content: center;
+				padding: 0 1em;
+				border: 1px solid $poke-scarlett-light;
+				border-radius: 0.5em;
+
+				&__icon {
+					grid-area: icon;
+					align-self: center;
+					justify-self: start;
+				}
+
+				&__name {
+					grid-area: name;
+					justify-self: end;
+				}
+
+				&__regnum {
+					grid-area: regnum;
+					justify-self: end;
+				}
+
+			}
+
+		}
+
+
+	}
+
+	@include media-tp {
+		grid-template-rows: 5vh 20vh 1fr;
+
+		&__list {
+			background: linear-gradient(rgba($poke-scarlett-light, 0.5), $poke-black-bg 1%, $poke-black-bg 99%, rgba($poke-scarlett-light, 0.5) 100%);
+			//border-left: 1px solid rgba($poke-scarlett-light, 0.5);
+		}
 	}
 
 	@include media-ml-down {
+		grid-template-rows: 5vh 5vh 1fr;
 
 		&__title {
 			font-size: 1.3rem;
 			//padding: 2rem 0;
 		}
+
 	}
 
+
+	@include media-ml {
+
+	}
+
+	@include media-mp {
+		&__list {
+			grid-template-columns: 1fr
+		}
+		
+	}
+
+
+	
 }

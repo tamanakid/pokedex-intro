@@ -29,16 +29,24 @@ export default {
 
 
 .layout__content {
-	
-	@include media-tp-down {
-		padding: 5rem 2rem;
-	}
-
-	@include media-tl-up {
+  height: 100vh;
+  
+  @include media-tl-up {
 		padding: 4rem;
     width: 80%;
-    height: 100vh;
+  }
+  
+  @include media-tp {
+		padding: 5rem 4rem;
 	}
+
+  @include media-ml-down {
+		padding: 5rem 1rem 1rem;
+  }
+  
+	
+
+	
 }
 
 </style>

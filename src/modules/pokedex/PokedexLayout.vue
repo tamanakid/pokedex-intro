@@ -5,7 +5,7 @@
 		</div>
 
 		<div class="pokedex__box">
-			<div class="pokedex__box__description">
+			<div class="pokedex__box__description" v-if="showDescription">
 				<div class="pokedex__box__description__img">
 					<img src="https://cdn.bulbagarden.net/upload/2/21/001Bulbasaur.png">
 					<!--
@@ -51,7 +51,7 @@
 
 
 <script>
-//import HelloWorld from './components/HelloWorld.vue'
+import { mqLayouts } from '@/config/vue-mq.config';
 
 export default {
 	name: 'app',
@@ -73,7 +73,11 @@ export default {
 	computed: {
 		pokedexPage: function() {
 			return this.doPagination(this.$store.getters['pokedex/getPokedexFiltered']);
-		}
+		},
+
+    	showDescription: function() {
+      		return !(mqLayouts.mediaTpDown.includes(this.$mq));
+    	}
 	},
 
 	methods: {
