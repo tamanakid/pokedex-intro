@@ -134,6 +134,69 @@
       "height": "3'03''",
       "weight": "65.0",
       "img": "https://cdn.bulbagarden.net/upload/f/f0/014Kakuna.png"
+    },
+    {
+      "id": 16,
+      "name": "Beedrill",
+      "regnum": 16,
+      "types": ["Bug", "Poison"],
+      "height": "3'03''",
+      "weight": "65.0",
+      "img": "https://cdn.bulbagarden.net/upload/f/f0/014Kakuna.png"
+    },
+    {
+      "id": 17,
+      "name": "Beedrill",
+      "regnum": 17,
+      "types": ["Bug", "Poison"],
+      "height": "3'03''",
+      "weight": "65.0",
+      "img": "https://cdn.bulbagarden.net/upload/f/f0/014Kakuna.png"
+    },
+    {
+      "id": 18,
+      "name": "Beedrill",
+      "regnum": 18,
+      "types": ["Bug", "Poison"],
+      "height": "3'03''",
+      "weight": "65.0",
+      "img": "https://cdn.bulbagarden.net/upload/f/f0/014Kakuna.png"
+    },
+    {
+      "id": 19,
+      "name": "Beedrill",
+      "regnum": 19,
+      "types": ["Bug", "Poison"],
+      "height": "3'03''",
+      "weight": "65.0",
+      "img": "https://cdn.bulbagarden.net/upload/f/f0/014Kakuna.png"
+    },
+    {
+      "id": 20,
+      "name": "Beedrill",
+      "regnum": 20,
+      "types": ["Bug", "Poison"],
+      "height": "3'03''",
+      "weight": "65.0",
+      "img": "https://cdn.bulbagarden.net/upload/f/f0/014Kakuna.png"
+    },
+    {
+      "id": 21,
+      "name": "Beedrill",
+      "regnum": 21,
+      "types": ["Bug", "Poison"],
+      "height": "3'03''",
+      "weight": "65.0",
+      "img": "https://cdn.bulbagarden.net/upload/f/f0/014Kakuna.png"
+    },
+    {
+      "id": 22,
+      "name": "Beedrill",
+      "regnum": 22,
+      "types": ["Bug", "Poison"],
+      "height": "3'03''",
+      "weight": "65.0",
+      "img": "https://cdn.bulbagarden.net/upload/f/f0/014Kakuna.png"
     }
   ]
 }

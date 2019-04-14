@@ -34,7 +34,7 @@
 		// grid-template-columns: 2fr 5fr;
 		// grid-template-columns: minmax(min-content, 16vw) 3fr;
 		grid-template-rows: 1fr 5fr;
-		grid-gap: 1rem;
+		grid-gap: 2vw;
 		grid-template-areas:
 			"title title"
 			"box list";
@@ -59,7 +59,7 @@
 				align-content: start;
 				align-items: center;
 				font-family: $font-family-text;
-				grid-template-rows: auto 2rem 2rem 6rem;
+				grid-template-rows: auto 2em 2em 6em;
 				grid-template-areas:
 					"img img"
 					"regnum name"
@@ -70,9 +70,9 @@
 					//width: 100%;
 					//max-width: 200px;
 					grid-area: img;
-					border: 0.1rem groove $poke-scarlett-light;
-					border-radius: 1rem;
-					padding: 0.5rem;
+					border: 0.1em groove $poke-scarlett-light;
+					border-radius: 1em;
+					padding: 1em;
 					& > img {
 						width: 100%;
 					}
@@ -100,14 +100,61 @@
 			}
 
 			&__filters {
-				border-top: 1px solid $poke-scarlett-dark;
+				border-top: 1px solid $poke-scarlett-light;
 				display: grid;
 				align-content: center;
+			}
+		}
+
+
+
+		&__list {
+			font-size: 1.25vw;
+			overflow-y: scroll;
+			display: grid;
+			grid-template-columns: 1fr 1fr 1fr;
+			grid-auto-rows: 4em;
+			grid-gap: 1.5em;
+			justify-items: stretch;
+			align-items: stretch;
+			padding: 1.5em;
+			font-family: $font-family-text;
+
+			&__pokemon {
+				display: grid;
+				grid-template-columns: auto 1fr;
+				grid-template-rows: 1em 1em;
+				grid-template-areas:
+					"icon name"
+					"icon regnum";
+				align-content: center;
+				padding: 0 1em;
+				border: 1px solid $poke-scarlett-light;
+				border-radius: 0.5em;
+
+				&__icon {
+					grid-area: icon;
+					align-self: center;
+					justify-self: start;
+				}
+
+				&__name {
+					grid-area: name;
+					justify-self: end;
+				}
+
+				&__regnum {
+					grid-area: regnum;
+					justify-self: end;
+				}
+
 			}
 
 		}
 
 	}
+
+
 
 
 	@include media-tp {

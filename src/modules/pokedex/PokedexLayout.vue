@@ -33,9 +33,17 @@
 			</div>
 		</div>
 
-		<div class="pokedex__list" >
+		<div class="pokedex__list">
 			<div class="pokedex__list__pokemon" v-for="pokemon in pokedexPage" v-bind:key="pokemon.id">
-				<p>{{ pokemon.name }}</p>
+				<div class="pokedex__list__pokemon__icon">
+					<img src="https://cdn.bulbagarden.net/upload/e/ec/001MS.png">
+				</div>
+				<div class="pokedex__list__pokemon__name">
+					<span>{{ pokemon.name }}</span>
+				</div>
+				<div class="pokedex__list__pokemon__regnum">
+					<span>{{ pokemon.regnum }}</span>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -71,7 +79,7 @@ export default {
 	methods: {
 		// may be better as a util (?) or maybe call the util from the store (?)
 		doPagination: function(pokedex) {
-			return pokedex.slice((this.currentPage)*10, (this.currentPage + 1)*10);
+			return pokedex.slice((this.currentPage)*25, (this.currentPage + 1)*25);
 		},
 
 		getRegnum: function(regnum) {
