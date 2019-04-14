@@ -1,5 +1,37 @@
 .pokedex {
 
+
+	/* SCROLLBAR */
+	// CHROME/SAFARI
+	::-webkit-scrollbar {
+		width: 0.5em;
+		
+		
+		&-track {
+			background-color: $poke-scarlett-light;
+			width: 0.5em;
+			//border-radius: 0.5rem 0;
+		}
+
+		&-thumb {
+			background-color: $poke-scarlett-dark;
+			border-radius: 0.5rem 0;
+		}
+	}
+
+	//FIREFOX
+	&__list {
+		scrollbar-width: thin;
+		scrollbar-color: $poke-scarlett-dark $poke-scarlett-light;
+	}
+	
+
+
+
+
+
+
+
 	display: grid;
 
 	& > * {
@@ -24,8 +56,11 @@
 		display: grid;
 		justify-items: center;
 		place-items: center;
-		border-radius: 1rem;
-		border: 1px solid $poke-scarlett-light;
+		border-radius: 1rem 0 0 1rem;
+		border-width: 1px 0 1px 1px;
+		//border-style: solid;
+		border-color: $poke-scarlett-light;
+		background-color: radial-gradient(rgba(white, 0.9), rgba(0, 0, 0, 0) 60%);
 	}
 
 	@include media-tl-up {
@@ -106,7 +141,8 @@
 			}
 		}
 
-
+		
+		
 
 		&__list {
 			font-size: 1.25vw;
@@ -119,6 +155,8 @@
 			align-items: stretch;
 			padding: 1.5em;
 			font-family: $font-family-text;
+
+			
 
 			&__pokemon {
 				display: grid;
