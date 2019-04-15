@@ -1,60 +1,35 @@
 <template>
-  <div class="pokedex-box">
-    <div class="pokedex-box__description" v-if="showDescription">
-      <div class="pokedex-box__description__img">
-        <img src="https://cdn.bulbagarden.net/upload/2/21/001Bulbasaur.png">
-        <!--
-        <img v-bind:src="hovered.srcImg">
-        -->
-      </div>
-      <div class="pokedex-box__description__regnum">
-        <span>{{ regnumFormatting(regnum) }}</span>
-      </div>
-      <div class="pokedex-box__description__name">
-        <span>{{ name }}</span>
-      </div>
-      <div class="pokedex-box__description__types">
-        <span>{{ types ? types[0] : '' }}</span>
-        <span>{{ (types && types[1]) ? types[1] : ''}}</span>
-      </div>
-      <div class="pokedex-box__description__details">
-        <span>Height</span>
-        <span>Weight</span>
-      </div>
-    </div>
-    
-    <div class="pokedex-box__filters">
-      <div class="pokedex-box__filters__title">
+  <div class="pokedex-box" @mouseleave="offHoverFilters">
+    <template v-if="showDescription">
+      <sidebox-description :name="name" :types="types" :regnum="regnum"></sidebox-description>
+    </template>
+
+    <!--<div class="pokedex-box__filters" @mouseleave="offHoverFilters">-->
+    <div class="pokedex-box__filters"> 
+      <div class="pokedex-box__filters__title" @mouseenter="onHoverFilters">
         <span>Filters</span>
       </div>
-      <template v-if="showFilterOptions">
-        <transition name="deploy-filter">
-          <div class="pokedex-box__filters__options">
-            <div class="pokedex-box__filters__options__name">
-              <span>By Name</span>
-            </div>
-            <div class="pokedex-box__filters__options__type">
-              <span>By Type</span>
-            </div>
-            <div class="pokedex-box__filters__options__stats">
-              <span>By Stats</span>
-            </div>
-          </div>
-        </transition>
-      </template>
+      <transition name="showfilter">
+        <template v-if="showFilterOptions">
+          <sidebox-filters></sidebox-filters>
+        </template>
+      </transition>
     </div>
   </div>
 </template>
 
 
 <script>
+import PokedexSideboxDescriptionView from './PokedexSideboxDescriptionView.vue'
+import PokedexSideboxFiltersView from './PokedexSideboxFiltersView.vue'
 import { mqLayouts } from '@/config/vue-mq.config';
 
 export default {
 	name: 'PokedexCustomBox',
 
 	components: {
-    // none yet
+    'sidebox-description': PokedexSideboxDescriptionView,
+    'sidebox-filters': PokedexSideboxFiltersView
   },
   
   /**
@@ -66,26 +41,36 @@ export default {
     'regnum'
   ],
 
-  /*
+  
 	data: function() {
 		return {
-			currentPage: 0
+			isFilterHovered: false
 		};
   },
-  */
 
 	computed: {
     showDescription: function() {
-			return !(mqLayouts.mediaTpDown.includes(this.$mq));
+			// return (this.$mq === 'd' && !this.isFilterHovered)
+      // return !(mqLayouts.mediaTpDown.includes(this.$mq));
+      return !this.isFilterHovered;
     },
 
     showFilterOptions: function() {
       // really depends on hover action
-      return (mqLayouts.mediaTpDown.includes(this.$mq));
+      // return !(this.$mq === 'd') || this.isFilterHovered;
+      return this.isFilterHovered;
     }
 	},
 
 	methods: {
+    onHoverFilters: function() {
+      this.isFilterHovered = true;
+    },
+
+    offHoverFilters: function() {
+      this.isFilterHovered = false;
+    },
+
 		// may be better as a util (?) or maybe call the util from the store (?)
 		getRegnum: function(regnum) {
 			return "#" + this.regnumFormatting(regnum);
@@ -111,4 +96,11 @@ export default {
 
 
 <style scoped lang="scss" src="./pokedex-sidebox.scss">
+.showfilter-enter-active, .showfilter-leave-active {
+  transition: transform 1s ease-in-out;
+}
+
+.showfilter-enter, .showfilter-leave-to {
+  transform: scale(1, 0);
+}
 </style>

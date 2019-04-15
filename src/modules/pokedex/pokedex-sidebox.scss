@@ -8,7 +8,16 @@
   /**
    * PENDING CLEANUP AND TP-DOWN!
    */
-  @include media-tl-up {
+  
+  @include media-tl {
+    &__filters {
+      display: grid;
+      align-content: center;
+    }
+  }
+  
+  
+  @include media-d {
     grid-template-rows: 1fr 2rem;
     //max-width: 16vw;
     justify-self: end;
