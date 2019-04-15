@@ -3,61 +3,22 @@
 		<div class="pokedex__title">
 			<span>National Pokedex</span>
 		</div>
-
-		<div class="pokedex__box">
-			<div class="pokedex__box__description" v-if="showDescription">
-				<div class="pokedex__box__description__img">
-					<img src="https://cdn.bulbagarden.net/upload/2/21/001Bulbasaur.png">
-					<!--
-					<img v-bind:src="hovered.srcImg">
-					-->
-				</div>
-				<div class="pokedex__box__description__regnum">
-					<span>#001</span>
-				</div>
-				<div class="pokedex__box__description__name">
-					<span>Bulbasaur</span>
-				</div>
-				<div class="pokedex__box__description__types">
-					<span>Grass</span>
-					<span>Poison</span>
-				</div>
-				<div class="pokedex__box__description__details">
-					<span>Height</span>
-					<span>Weight</span>
-				</div>
-			</div>
-			
-			<div class="pokedex__box__filters">
-				<span>Filters</span>
-			</div>
-		</div>
-
-		<div class="pokedex__list">
-			<div class="pokedex__list__pokemon" v-for="pokemon in pokedexPage" v-bind:key="pokemon.id">
-				<div class="pokedex__list__pokemon__icon">
-					<img src="https://cdn.bulbagarden.net/upload/e/ec/001MS.png">
-				</div>
-				<div class="pokedex__list__pokemon__name">
-					<span>{{ pokemon.name }}</span>
-				</div>
-				<div class="pokedex__list__pokemon__regnum">
-					<span>{{ pokemon.regnum }}</span>
-				</div>
-			</div>
-		</div>
+		<pokedex-sidebox v-bind="pokemonHovered"></pokedex-sidebox> <!-- We ought to pass the hovered-on pokemon as a prop -->
+		<pokedex-list v-bind:pokedexList="pokedexPage" v-on:test="onPokeHover"></pokedex-list>
 	</div>
 </template>
 
 
 <script>
-import { mqLayouts } from '@/config/vue-mq.config';
+import PokedexListView from './PokedexListView.vue'
+import PokedexSideboxView from './PokedexSideboxView.vue'
 
 export default {
-	name: 'app',
+	name: 'PokedexLayout',
 
 	components: {
-		//HelloWorld
+		'pokedex-list': PokedexListView,
+		'pokedex-sidebox': PokedexSideboxView
 	},
 
 	beforeCreate: function() {
@@ -66,18 +27,15 @@ export default {
 
 	data: function() {
 		return {
-			currentPage: 0
+			currentPage: 0,
+			pokemonHovered: null,
 		};
 	},
 
 	computed: {
 		pokedexPage: function() {
 			return this.doPagination(this.$store.getters['pokedex/getPokedexFiltered']);
-		},
-
-    	showDescription: function() {
-      		return !(mqLayouts.mediaTpDown.includes(this.$mq));
-    	}
+		}
 	},
 
 	methods: {
@@ -96,6 +54,12 @@ export default {
 				regnum = "0" + regnum;
 			}
 			return regnum;
+		},
+
+		onPokeHover: function(pokemon) {
+			console.log("emit works");
+			this.pokemonHovered = pokemon;
+			console.log(this.pokemonHovered);
 		}
 	}
 

@@ -4,7 +4,8 @@
 ## summary
 
 This is a small front-end practicing project, with emphasis on development, testing and UI design.
-the vue-cli v-3.5.0 is used in order to automate the bundling, transpiling and linting tasks. 
+
+The vue-cli v-3.5.0 is used in order to automate the bundling, transpiling and linting tasks. 
 
 &nbsp;
 ## tech-stack
@@ -23,8 +24,8 @@ the vue-cli v-3.5.0 is used in order to automate the bundling, transpiling and l
 * **Jest** Testing Framework
 * vue-test-utils with vue-template-compiler
 
-### Mocking
-* JSON Schema Faker
+### 'Mocking'
+* JSON Server with axios
 
 &nbsp;
 ## vue-cli configuration

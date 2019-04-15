@@ -1,0 +1,72 @@
+.pokedex-box {
+  grid-area: box;
+  display: grid;
+  border-radius: 1rem;
+  border: 1px solid $poke-scarlett-light;
+
+
+  /**
+   * PENDING CLEANUP AND TP-DOWN!
+   */
+  @include media-tl-up {
+    grid-template-rows: 1fr 2rem;
+    //max-width: 16vw;
+    justify-self: end;
+    font-size: 1.25vw;
+    // tl:
+    // font-size: 1.75vw;
+
+    &__description {
+      padding: 12%;
+      display: grid;
+      justify-items: center;
+      align-content: start;
+      align-items: center;
+      font-family: $font-family-text;
+      grid-template-rows: auto 2em 2em 6em;
+      grid-template-areas:
+        "img img"
+        "regnum name"
+        "types types"
+        "details details";
+
+      &__img {
+        //width: 100%;
+        //max-width: 200px;
+        grid-area: img;
+        border: 0.1em groove $poke-scarlett-light;
+        border-radius: 1em;
+        padding: 1em;
+        & > img {
+          width: 100%;
+        }
+      }
+
+      &__regnum {
+        grid-area: regnum;
+        justify-self: start;
+      }
+
+      &__name {
+        grid-area: name;
+        justify-self: end;
+        font-weight: bold;
+      }
+
+      &__types {
+        grid-area: types;
+      }
+
+      &__details {
+        grid-area: details;
+      }
+
+    }
+
+    &__filters {
+      border-top: 1px solid $poke-scarlett-light;
+      display: grid;
+      align-content: center;
+    }
+  }
+}

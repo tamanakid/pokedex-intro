@@ -1,0 +1,89 @@
+.bg-green {
+  background-color: green;
+}
+
+.pokedex-list {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  display: grid;
+  justify-items: stretch;
+  align-items: stretch;
+  grid-auto-rows: 4em;
+  padding: 1.5em;
+  font-family: $font-family-text;
+
+  &__pokemon {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: 1em 1em;
+    grid-template-areas:
+      "icon name"
+      "icon regnum";
+    align-content: center;
+    padding: 0 1em;
+    border: 1px solid $poke-scarlett-light;
+    border-radius: 0.5em;
+
+    &__icon {
+      grid-area: icon;
+      align-self: center;
+      justify-self: start;
+    }
+
+    &__name {
+      grid-area: name;
+      justify-self: end;
+    }
+
+    &__regnum {
+      grid-area: regnum;
+      justify-self: end;
+    }
+  }
+
+
+  @include media-d {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  @include media-tl {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @include media-tp {
+    grid-template-columns: 1fr 1fr;
+    background: linear-gradient(
+      rgba($poke-scarlett-light, 0.3),
+      $poke-black-bg 10%,
+      $poke-black-bg 90%,
+      rgba($poke-scarlett-light, 0.3) 100%
+    );
+  }
+
+  @include media-mp {
+    grid-template-columns: 1fr
+  }
+
+
+  @include media-tl-up {
+    font-size: 1.25vw;
+    grid-gap: 1.5em;
+    background: linear-gradient(
+      rgba($poke-scarlett-light, 0.3),
+      $poke-black-bg 5%,
+      $poke-black-bg 95%,
+      rgba($poke-scarlett-light, 0.3) 100%
+    );
+  }
+
+  @include media-tp-down {
+    font-size: 1.25rem;
+    grid-gap: 2em;
+  }
+
+  @include media-ml-down {
+    font-size: 1.3rem;
+  }
+
+
+}

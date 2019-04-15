@@ -43,6 +43,31 @@ export default {
   @include media-ml-down {
 		padding: 5rem 1rem 1rem;
   }
+
+  
+
+  /**
+   * SCROLLBAR
+   */
+	// Chrome and Safari
+	::-webkit-scrollbar {
+		width: 0.5em;
+		&-track {
+			background-color: $poke-scarlett-light;
+			width: 0.5em;
+		}
+
+		&-thumb {
+			background-color: $poke-scarlett-dark;
+			border-radius: 0.5rem 0;
+		}
+	}
+
+	// Firefox
+	* {
+		scrollbar-width: thin;
+		scrollbar-color: $poke-scarlett-dark $poke-scarlett-light;
+	}
   
 	
 
