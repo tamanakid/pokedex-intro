@@ -1,24 +1,45 @@
+
+/** Show Filter Transition */
+.show-filter-enter-active, .show-filter-leave-active {
+  transition: all 0.8s ease-in-out;
+}
+
+.show-filter-enter, .show-filter-leave-to {
+  transform: translateY(100%);
+}
+
+.show-filter-enter-to, .show-filter-leave {
+  transform: translateY(0);
+}
+
+
 .pokedex-box {
   grid-area: box;
+  position: relative;
   display: grid;
-  border-radius: 1rem;
+  border-radius: 1em;
   border: 1px solid $poke-scarlett-light;
+  height: 100%;
+  overflow-y: hidden;
 
 
   /**
    * PENDING CLEANUP AND TP-DOWN!
    */
   
-  @include media-tl {
+  @include media-tl-up { //shouldnt affect tp!
     &__filters {
       display: grid;
+      grid-template-rows: 3em 1fr;
       align-content: center;
+      align-items: start;
+      padding: 2em 1em;
+      overflow-x: hidden; //?
     }
   }
   
-  
   @include media-d {
-    grid-template-rows: 1fr 2rem;
+    grid-template-rows: 1fr 2em;
     //max-width: 16vw;
     justify-self: end;
     font-size: 1.25vw;
@@ -26,56 +47,65 @@
     // font-size: 1.75vw;
 
     &__description {
-      padding: 12%;
-      display: grid;
-      justify-items: center;
-      align-content: start;
-      align-items: center;
-      font-family: $font-family-text;
-      grid-template-rows: auto 2em 2em 6em;
-      grid-template-areas:
-        "img img"
-        "regnum name"
-        "types types"
-        "details details";
-
-      &__img {
-        //width: 100%;
-        //max-width: 200px;
-        grid-area: img;
-        border: 0.1em groove $poke-scarlett-light;
-        border-radius: 1em;
-        padding: 1em;
-        & > img {
-          width: 100%;
-        }
-      }
-
-      &__regnum {
-        grid-area: regnum;
-        justify-self: start;
-      }
-
-      &__name {
-        grid-area: name;
-        justify-self: end;
-        font-weight: bold;
-      }
-
-      &__types {
-        grid-area: types;
-      }
-
-      &__details {
-        grid-area: details;
-      }
-
+      z-index: 1;
     }
 
     &__filters {
-      border-top: 1px solid $poke-scarlett-light;
+      bottom: 0;
       display: grid;
-      align-content: center;
+      grid-template-rows: 2em 1fr;
+      padding: 0;
+
+      &__title {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 2;
+        height: 100%;
+        border-top: 1px solid $poke-scarlett-light;
+        border-radius: 0 0 1em 1em;
+        background-color: $poke-black-bg;
+      }
+
+      &__detail {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient($poke-scarlett-dark, rgba($poke-black-bg, 0.9) 35%, rgba($poke-black-bg, 0.9) 65%, $poke-scarlett-dark);
+        border-top: 1px solid $poke-scarlett-light;
+        border-radius: 1em;
+        z-index: 1;
+      }
     }
   }
+
+  @include media-tp {
+   z-index: -1; // pega'o con tirro
+    &__filters {
+      display: grid;
+      grid-template-rows: auto 1fr;
+      align-content: center;
+      align-items: center;
+      padding: 1em 2em;
+    }
+  }
+
+  @include media-ml-down {
+    &__filters {
+      display: grid;
+      grid-template-rows: 1fr;
+      grid-template-columns: 1fr 6fr 1fr;
+      grid-template-areas: ". title dropdown";
+      align-items: center;
+      padding: 0;
+
+      &__title {
+        grid-area: title
+      }
+      &__dropdown {
+        grid-area: dropdown;
+      }
+    }
+  }
+
 }

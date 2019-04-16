@@ -9,7 +9,7 @@
 
 
 	@include media-tl {
-		grid-template-columns: 2fr 5fr;
+		grid-template-columns: 1fr 2fr;
 	}
 
 	@include media-d {
@@ -49,11 +49,17 @@
 	}
 
 	@include media-ml-down {
-		grid-template-rows: 5vh 5vh 1fr;
-
 		&__title {
 			font-size: 1.3rem;
 		}
+	}
+
+	@include media-ml {
+		grid-template-rows: 5vh 10vh 1fr;
+	}
+
+	@include media-mp {
+		grid-template-rows: 5vh 5vh 1fr;
 	}
 
 	

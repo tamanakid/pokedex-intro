@@ -1,20 +1,25 @@
 <template>
   <div class="pokedex-box" @mouseleave="offHoverFilters">
-    <template v-if="showDescription">
+    <div class="pokedex-box__description" v-if="showDescription">
       <sidebox-description :name="name" :types="types" :regnum="regnum"></sidebox-description>
-    </template>
-
-    <!--<div class="pokedex-box__filters" @mouseleave="offHoverFilters">-->
-    <div class="pokedex-box__filters"> 
-      <div class="pokedex-box__filters__title" @mouseenter="onHoverFilters">
+    </div>
+    <div class="pokedex-box__filters" @mouseenter="onHoverFilters">
+      <div class="pokedex-box__filters__title">
         <span>Filters</span>
       </div>
-      <transition name="showfilter">
-        <template v-if="showFilterOptions">
-          <sidebox-filters></sidebox-filters>
-        </template>
-      </transition>
-    </div>
+      <template v-if="showPhoneFilter">
+        <div class="pokedex__box__filters__dropdown">
+          <span>X</span>
+        </div>
+      </template>
+      <template v-else>
+        <transition name="show-filter">
+          <div class="pokedex-box__filters__detail" v-show="showFilterOptions">
+            <sidebox-filters></sidebox-filters>
+          </div>
+        </transition>
+      </template>
+    </div>    
   </div>
 </template>
 
@@ -50,15 +55,15 @@ export default {
 
 	computed: {
     showDescription: function() {
-			// return (this.$mq === 'd' && !this.isFilterHovered)
-      // return !(mqLayouts.mediaTpDown.includes(this.$mq));
-      return !this.isFilterHovered;
+			return (this.$mq === 'd');
     },
 
     showFilterOptions: function() {
-      // really depends on hover action
-      // return !(this.$mq === 'd') || this.isFilterHovered;
-      return this.isFilterHovered;
+      return (this.$mq === 'd') ? this.isFilterHovered : true;      
+    },
+
+    showPhoneFilter: function() {
+      return (mqLayouts.mediaMlDown.includes(this.$mq));
     }
 	},
 
@@ -96,11 +101,5 @@ export default {
 
 
 <style scoped lang="scss" src="./pokedex-sidebox.scss">
-.showfilter-enter-active, .showfilter-leave-active {
-  transition: transform 1s ease-in-out;
-}
 
-.showfilter-enter, .showfilter-leave-to {
-  transform: scale(1, 0);
-}
 </style>

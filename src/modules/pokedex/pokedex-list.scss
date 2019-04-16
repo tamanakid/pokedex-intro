@@ -3,6 +3,7 @@
 }
 
 .pokedex-list {
+  grid-area: list;
   overflow-y: scroll;
   overflow-x: hidden;
   display: grid;

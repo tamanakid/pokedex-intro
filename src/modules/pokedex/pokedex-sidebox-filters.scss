@@ -1,0 +1,77 @@
+.filters {
+  font-family: $font-family-text;
+  display: grid;
+  align-items: center;
+
+  &__param {
+    display: grid;
+    grid-template-columns: 1fr;
+  
+    &-simple {
+      grid-template-rows: 1fr 1fr;
+    }
+    &-compound {
+      grid-template-rows: 1fr 1fr 1fr;
+    }
+
+    * {
+      margin-bottom: 0.5rem;
+    }
+
+    &__title {
+      font-weight: bold;
+    }
+  }
+
+  @include media-tp-down {
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    grid-row-gap: 1em;
+    grid-column-gap: 2em;
+    grid-template-areas:
+      "name stats"
+      "type stats";
+    align-items: start;
+
+    &__name {
+      grid-area: name;
+    }
+    &__type {
+      grid-area: type;
+    }
+
+    &__stats {
+      grid-area: stats;
+    }
+  }
+
+  @include media-tl {
+    font-size: 1.25em;
+  }
+  
+  @include media-tl-up {
+    grid-template-rows: 4em 4em 6em;
+    grid-row-gap: 1em;
+  }
+
+  @include media-d {
+    grid-row-gap: 1em;
+    align-content: stretch;
+    align-items: center; //start?
+    height: 100%;
+    padding: 2em 1em;
+
+    &__param {
+      display: grid;
+      grid-template-columns: 1fr;
+      //background: $poke-gold;
+    
+      &-simple {
+        grid-template-rows: 1fr 1fr;
+      }
+      &-compound {
+        grid-template-rows: 1fr 1fr 1fr;
+      }
+    }
+  }
+}

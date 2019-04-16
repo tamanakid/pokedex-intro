@@ -1,13 +1,17 @@
 <template>
 	<div class="filters">
-		<div class="filters__name">
-			<span>By Name</span>
+		<div class="filters__param filters__param-single filters__name">
+			<span class="filters__param__title">By Name</span>
+			<input placeholder="Name">
 		</div>
-		<div class="filters__type">
-			<span>By Type</span>
+		<div class="filters__param filters__param-single filters__type">
+			<span class="filters__param__title">By Type</span>
+			<input placeholder="Type">
 		</div>
-		<div class="filters__stats">
-			<span>By Stats</span>
+		<div class="filters__param filters__param-compound filters__stats">
+			<span class="filters__param__title">By Stats</span>
+			<input placeholder="Stats">
+			<input placeholder="Value">
 		</div>
 	</div>
 </template>
