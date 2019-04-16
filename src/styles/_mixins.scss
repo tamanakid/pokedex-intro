@@ -1,1 +1,23 @@
 @import './mixins-mq';
+
+/** Generic (just in case) */
+@mixin type-class-bg ($type) {
+		background: #{'type-' + $type};
+}
+
+@mixin type-one-bg ($type) {
+  background: linear-gradient(
+    135deg,
+    rgba(#{'type-' + $type}, 0.3),
+    rgba(0, 0, 0, 0) 40%
+  );
+}
+
+@mixin type-two-bg ($typeOne, $typeTwo) {
+  background: linear-gradient(
+    135deg,
+    rgba(#{'type-' + $typeOne}, 0.3),
+    rgba(#{'type-' + $typeTwo}, 0.3) 30%,
+    rgba(0, 0, 0, 0) 50%
+  );
+}

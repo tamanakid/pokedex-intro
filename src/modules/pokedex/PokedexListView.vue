@@ -5,7 +5,7 @@
 				<div class="pokedex-list__pokemon__icon">
 					<img src="https://cdn.bulbagarden.net/upload/e/ec/001MS.png">
 				</div>
-				<div class="pokedex-list__pokemon__name" :class="bindIsGreen">
+				<div class="pokedex-list__pokemon__name" :class="bindType">
 					<span>{{ pokemon.name }}</span>
 				</div>
 				<div class="pokedex-list__pokemon__regnum">
@@ -33,7 +33,7 @@ export default {
 
 	data: function() {
 		return {
-			isGreen: false
+			isHovered: false
 		};
 	},
 
@@ -41,8 +41,8 @@ export default {
 		/** 
 		 * Should be separated into a PokedexPokemonView, so each instance has its own isHovered attribute for the background
 		 */
-		bindIsGreen: function() {
-			return (this.isGreen) ? 'bg-green' : '';
+		bindType: function() {
+			return (this.isHovered) ? 'bg-green' : '';
 		}
 	},
 
@@ -65,13 +65,13 @@ export default {
 		},
 
 		onHoverPokemon: function(pokemon, event) {
-			this.isGreen = true;
+			this.isHovered = true;
 			//console.log(pokemon);
 			this.$emit('test', pokemon);
 		},
 
 		offHoverPokemon: function(pokemon, event) {
-			this.isGreen = false;
+			this.isHovered = false;
 		}
 	}
 
