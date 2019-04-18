@@ -22,3 +22,25 @@ export {
     mqConfig,
     mqLayouts 
 };
+
+/*
+function queryMedia() {
+    let mediaMlDown = ["mp", "ml"];
+    let mediaTpDown =  ["mp", "ml", "tp"];
+
+    function isMlDown(mq) {
+        return (mediaMlDown.includes(mq)); 
+    }
+
+    function isTpDown(mq) {
+        return (mediaTpDown.includes(mq)); 
+    }
+
+}
+
+queryMedia {
+    mediaMlDown: ["mp", "ml"],
+    mediaTpDown: ["mp", "ml", "tp"]
+}
+
+*/

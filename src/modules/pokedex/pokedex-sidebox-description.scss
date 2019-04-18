@@ -1,3 +1,12 @@
+.poke-type {
+	@each $type, $color in $type-colors {
+		&-#{$type} {
+			background: $color;
+		}
+	}
+}
+
+
 .sidebox-description {
 	@include media-d {
 		padding: 12%;
@@ -38,6 +47,19 @@
 
 		&__types {
 			grid-area: types;
+			justify-self: stretch;
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			justify-items: center;
+			align-items: center;
+
+			&__type {
+				padding: 0.5em;
+				border-radius: 0.5em;
+				font-size: 0.8em;
+				font-weight: bold;
+				color: $poke-black-bg;
+			}
 		}
 
 		&__details {

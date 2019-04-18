@@ -10,7 +10,7 @@
 		&__title {
 			position: relative;
 			z-index: 10;
-			height: 4rem;
+			height: 4em;
 			display: grid;
 			grid-template-columns: 1fr 6fr 1fr;
 			grid-template-areas: ". text toggle";
@@ -23,14 +23,15 @@
 
 			&__toggle {
 				grid-area: toggle;
-				padding: 0.5rem;
+				padding: 0.5em;
 			}
 		}
 
 		&__contents {
 			position: relative;
 			z-index: 5;
-			background-color: rgba($poke-scarlett-dark, 0.8);
+			background-color: rgba($poke-scarlett-dark, 0.9);
+			border-radius: 0 0 1em 1em;
 
 			&_toggle-enter-active, &_toggle-leave-active {
 			  transition: transform 0.5s ease-in-out;
@@ -39,6 +40,12 @@
 			&_toggle-enter, &_toggle-leave-to {
 			  transform: translateY(-100%);
 			}
+		}
+	}
+
+	@include media-ml-down {
+		&__title {
+			height: 3em;
 		}
 	}
 
@@ -63,7 +70,7 @@
 
 		&__contents {
 			grid-area: contents;
-			margin: 0 1rem;
+			margin: 0 1em;
 		}
 	}
 

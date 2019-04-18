@@ -14,7 +14,7 @@
       </template>
       <template v-else>
         <transition name="show-filter">
-          <div class="pokedex-box__filters__detail" v-show="showFilterOptions">
+          <div class="pokedex-box__filters__detail" :class="classFilterOff" v-show="showFilterOptions">
             <sidebox-filters></sidebox-filters>
           </div>
         </transition>
@@ -64,6 +64,10 @@ export default {
 
     showPhoneFilter: function() {
       return (mqLayouts.mediaMlDown.includes(this.$mq));
+    },
+
+    classFilterOff: function() {
+      return this.showFilterOptions ? '' : 'pokedex-box__filters__detail_off';
     }
 	},
 

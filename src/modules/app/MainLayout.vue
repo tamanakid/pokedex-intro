@@ -41,7 +41,7 @@ export default {
 	}
 
   @include media-ml-down {
-		padding: 5rem 1rem 1rem;
+		padding: 4rem 1rem 1rem;
   }
 
   

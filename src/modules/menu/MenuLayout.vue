@@ -3,10 +3,10 @@
 
     <div class="menu__title">
       <div class="menu__title__text">
-        <span>Pokedex</span>
+        <span>{{ menuTitle }}</span>
       </div>
       <div class="menu__title__toggle" v-if="isTpDown" v-on:click="onToggleMenu">
-        <i class="fa fa-lg" v-bind:class="caretSquareClass" aria-hidden="true"></i>
+        <i class="fa fa-lg" v-bind:class="arrowIconClass" aria-hidden="true"></i>
       </div>
     </div>
 
@@ -30,6 +30,7 @@
 
 <script>
 import MenuContentsView from './MenuContentsView.vue';
+import menuTitlesEnum from './menuTitlesEnum.js';
 import { mqLayouts } from '@/config/vue-mq.config';
 
 export default {
@@ -41,8 +42,13 @@ export default {
 
   data: function() {
     return {
-      isMenuToggled: false
+      isMenuToggled: false,
+      menuTitle: menuTitlesEnum.default
     };
+  },
+
+  mounted() {
+    this.checkMenuTitle();
   },
 
   computed: {
@@ -50,13 +56,13 @@ export default {
       return mqLayouts.mediaTpDown.includes(this.$mq);
     },
 
-    caretSquareClass: function() {
+    arrowIconClass: function() {
       return this.isMenuToggled ? "fa-caret-square-o-up": "fa-caret-square-o-down";
     }
   },
 
   watch: {
-    '$route': 'closeOnNavigation'
+    '$route': 'onRouteChange'
   },
 
   methods: {
@@ -64,9 +70,19 @@ export default {
       this.isMenuToggled = !this.isMenuToggled;
     },
 
-    closeOnNavigation: function() {
+    onRouteChange: function() {
       this.isMenuToggled = false;
+      this.checkMenuTitle();
+    },
+
+    checkMenuTitle: function() {
+      if (mqLayouts.mediaMlDown.includes(this.$mq)) {
+        this.menuTitle = menuTitlesEnum[this.$router.currentRoute.name];
+      } else {
+        this.menuTitle = menuTitlesEnum.default;
+      }
     }
+
   }
 
 }

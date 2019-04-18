@@ -13,8 +13,12 @@
 			<span>{{ name }}</span>
 		</div>
 		<div class="sidebox-description__types">
-			<span>{{ types ? types[0] : '' }}</span>
-			<span>{{ (types && types[1]) ? types[1] : ''}}</span>
+			<div class="sidebox-description__types__type poke-type" :class="getTypeClass(types)">
+				<span>{{ types ? types[0] : '' }}</span>
+			</div>
+			<div class="sidebox-description__types__type poke-type" :class="getTypeClass(types)">
+				<span>{{ (types && types[1]) ? types[1] : ''}}</span>
+			</div>
 		</div>
 		<div class="sidebox-description__details">
 			<span>Height</span>
@@ -56,7 +60,14 @@ export default {
       } else {
         return '';
       }
-			
+		},
+
+		getTypeClass: function(types) {
+			if (types) {
+				return 'poke-type-' + types[0].toLowerCase();
+			} else {
+				return '';
+			}
 		}
 	}
 

@@ -1,6 +1,6 @@
 <template>
 	<div class="pokedex">
-		<div class="pokedex__title">
+		<div class="pokedex__title" v-if="!(isMobile)">
 			<span>National Pokedex</span>
 		</div>
 		<pokedex-sidebox v-bind="pokemonHovered"></pokedex-sidebox> <!-- We ought to pass the hovered-on pokemon as a prop -->
@@ -12,6 +12,7 @@
 <script>
 import PokedexListView from './PokedexListView.vue'
 import PokedexSideboxView from './PokedexSideboxView.vue'
+import { mqLayouts } from '@/config/vue-mq.config';
 
 export default {
 	name: 'PokedexLayout',
@@ -35,6 +36,10 @@ export default {
 	computed: {
 		pokedexPage: function() {
 			return this.doPagination(this.$store.getters['pokedex/getPokedexFiltered']);
+		},
+
+		isMobile: function() {
+			return (mqLayouts.mediaMlDown.includes(this.$mq));
 		}
 	},
 

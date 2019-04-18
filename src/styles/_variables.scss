@@ -38,20 +38,22 @@ $poke-gold: rgb(143, 143, 63);
 $other-blue: rgb(44, 62, 80);
 
 // Types Colors
-$type-normal: #aaa;
-$type-fighting: #711;
-$type-flying: #78c;
-$type-poison: #616;
-$type-ground: #b95;
-$type-rock: #750;
-$type-bug: #560;
-$type-ghost: #42a;
-$type-steel: #77a;
-$type-fire: #c21;
-$type-water: #06d;
-$type-grass: #2a4;
-$type-electric: #d90;
-$type-psychic: #c39;
-$type-ice: #9cf;
-$type-dragon: #31f;
-$type-dark: #433;
+$type-colors: (
+    normal: #aaa,
+    fighting: #711,
+    flying: #78c,
+    poison: #616,
+    ground: #b95,
+    rock: #750,
+    bug: #560,
+    ghost: #42a,
+    steel: #77a,
+    fire: #c21,
+    water: #06d,
+    grass: #2a4,
+    electric: #d90,
+    psychic: #c39,
+    ice: #9cf,
+    dragon: #31f,
+    dark: #433
+);

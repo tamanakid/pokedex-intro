@@ -75,6 +75,10 @@
         border-top: 1px solid $poke-scarlett-light;
         border-radius: 1em;
         z-index: 1;
+
+        &_off {
+          transform: translateY(100%);
+        }
       }
     }
   }

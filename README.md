@@ -32,8 +32,9 @@ The vue-cli v-3.5.0 is used in order to automate the bundling, transpiling and l
 
 #### Project setup
 ```
-npm install
+npm ci
 ```
+Downloads dependencies exactly as given by the ```package-lock.json```
 
 #### Compiles and hot-reloads for development
 ```
