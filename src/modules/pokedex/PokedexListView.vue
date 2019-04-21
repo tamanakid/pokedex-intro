@@ -3,7 +3,7 @@
 		<template v-for="pokemon in pokedexList">
 			<div class="pokedex-list__pokemon" :key="pokemon.id" @mouseenter="onHoverPokemon(pokemon, $event)" @mouseleave="offHoverPokemon(pokemon, $event)">
 				<div class="pokedex-list__pokemon__icon">
-					<img src="https://cdn.bulbagarden.net/upload/e/ec/001MS.png">
+					<img v-bind:src="pokemon.icon">
 				</div>
 				<div class="pokedex-list__pokemon__name" :class="bindType">
 					<span>{{ pokemon.name }}</span>
