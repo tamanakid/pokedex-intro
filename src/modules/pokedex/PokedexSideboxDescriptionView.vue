@@ -1,9 +1,14 @@
 <template>
 	<div class="sidebox-description">
 		<div class="sidebox-description__img">
-			<img src="https://cdn.bulbagarden.net/upload/2/21/001Bulbasaur.png">
+			<template v-if="img">
+				<img v-bind:src="img">
+			</template>
+			<template v-else>
+				<img src="https://cdn.bulbagarden.net/upload/d/dc/GO_Pok%C3%A9_Ball.png">
+			</template>
 			<!--
-			<img v-bind:src="hovered.srcImg">
+			<img src="https://cdn.bulbagarden.net/upload/2/21/001Bulbasaur.png">
 			-->
 		</div>
 		<div class="sidebox-description__regnum">
@@ -12,17 +17,31 @@
 		<div class="sidebox-description__name">
 			<span>{{ name }}</span>
 		</div>
+
+		<div class="sidebox-description__types" :class="bindTypesGridClass">
+			<div v-for="type in types" class="sidebox-description__types__type poke-type" :class="getTypeClass(type)">
+				<span>{{ type }}</span>
+			</div>
+		</div>
+
+		<!--
 		<div class="sidebox-description__types">
 			<div class="sidebox-description__types__type poke-type" :class="getTypeClass(types)">
 				<span>{{ types ? types[0] : '' }}</span>
 			</div>
-			<div class="sidebox-description__types__type poke-type" :class="getTypeClass(types)">
+			<div v-if="(types && types[1])" class="sidebox-description__types__type poke-type" :class="getTypeClass(types)">
 				<span>{{ (types && types[1]) ? types[1] : ''}}</span>
 			</div>
 		</div>
-		<div class="sidebox-description__details">
-			<span>Height</span>
-			<span>Weight</span>
+		-->
+
+		<div v-if="height && weight" class="sidebox-description__details">
+			<div class="sidebox-description__details__height">
+				<span>Height: {{ height }}</span>
+			</div>
+			<div class="sidebox-description__details__height">
+				<span>Weight: {{ weight }}</span>
+			</div>
 		</div>
 	</div>
 </template>
@@ -32,16 +51,24 @@
 export default {
 	name: 'PokedexSideboxDescription',
 	
-	props: [
-    'name',
-    'types',
-    'regnum'
-  ],
-    
-	data: function() {
-		return {
-			pokemonHovered: null,
-		};
+	props: {
+		name: String,
+		types: {
+			type: Array,
+			default: function() {
+        return [];
+      }
+		},
+		regnum: Number,
+		height: String,
+		weight: String,
+		img: String
+	},
+
+	computed: {
+		bindTypesGridClass: function() {
+			return (this.types.length === 2) ? "sidebox-description__types_grid-two" : "sidebox-description__types_grid-one"; 
+		}
 	},
 
 	methods: {
@@ -62,12 +89,8 @@ export default {
       }
 		},
 
-		getTypeClass: function(types) {
-			if (types) {
-				return 'poke-type-' + types[0].toLowerCase();
-			} else {
-				return '';
-			}
+		getTypeClass: function(type) {
+			return 'poke-type-' + type.toLowerCase();
 		}
 	}
 

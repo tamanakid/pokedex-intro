@@ -1,7 +1,7 @@
 <template>
   <div class="pokedex-box" @mouseleave="offHoverFilters">
     <div class="pokedex-box__description" v-if="showDescription">
-      <sidebox-description :name="name" :types="types" :regnum="regnum"></sidebox-description>
+      <sidebox-description v-bind="pokemonHovered"></sidebox-description>
     </div>
     <div class="pokedex-box__filters" @mouseenter="onHoverFilters">
       <div class="pokedex-box__filters__title">
@@ -30,7 +30,7 @@ import PokedexSideboxFiltersView from './PokedexSideboxFiltersView.vue'
 import { queryMedia } from '@/config/vue-mq.config';
 
 export default {
-	name: 'PokedexCustomBox',
+	name: 'PokedexSidebox',
 
 	components: {
     'sidebox-description': PokedexSideboxDescriptionView,
@@ -40,11 +40,12 @@ export default {
   /**
    * Should it be passed the whole object instead? Analysis for after the Filter box is formatted and modularized
    */
-  props: [
-    'name',
-    'types',
-    'regnum'
-  ],
+  props: {
+    pokemonHovered: {
+      type: Object,
+      default: {}
+    }
+  },
 
   
 	data: function() {

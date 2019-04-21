@@ -3,7 +3,7 @@
 		<div class="pokedex__title" v-if="!(isMobile)">
 			<span>National Pokedex</span>
 		</div>
-		<pokedex-sidebox v-bind="pokemonHovered"></pokedex-sidebox> <!-- We ought to pass the hovered-on pokemon as a prop -->
+		<pokedex-sidebox v-bind:pokemon-hovered="pokemonHovered"></pokedex-sidebox> <!-- We ought to pass the hovered-on pokemon as a prop -->
 		<pokedex-list v-bind:pokedexList="pokedexPage" v-on:test="onPokeHover"></pokedex-list>
 	</div>
 </template>
@@ -29,7 +29,7 @@ export default {
 	data: function() {
 		return {
 			currentPage: 0,
-			pokemonHovered: null,
+			pokemonHovered: {},
 		};
 	},
 

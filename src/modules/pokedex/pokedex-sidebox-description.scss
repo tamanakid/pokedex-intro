@@ -49,9 +49,14 @@
 			grid-area: types;
 			justify-self: stretch;
 			display: grid;
-			grid-template-columns: 1fr 1fr;
 			justify-items: center;
 			align-items: center;
+			&_grid-one {
+				grid-template-columns: 1fr;	
+			}
+			&_grid-two {
+				grid-template-columns: 1fr 1fr;
+			}
 
 			&__type {
 				padding: 0.5em;
