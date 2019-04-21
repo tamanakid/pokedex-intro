@@ -27,7 +27,7 @@
 <script>
 import PokedexSideboxDescriptionView from './PokedexSideboxDescriptionView.vue'
 import PokedexSideboxFiltersView from './PokedexSideboxFiltersView.vue'
-import { mqLayouts } from '@/config/vue-mq.config';
+import { queryMedia } from '@/config/vue-mq.config';
 
 export default {
 	name: 'PokedexCustomBox',
@@ -55,15 +55,15 @@ export default {
 
 	computed: {
     showDescription: function() {
-			return (this.$mq === 'd');
+			return queryMedia.isDesktop(this.$mq);
     },
 
     showFilterOptions: function() {
-      return (this.$mq === 'd') ? this.isFilterHovered : true;      
+      return (queryMedia.isDesktop(this.$mq)) ? this.isFilterHovered : true;      
     },
 
     showPhoneFilter: function() {
-      return (mqLayouts.mediaMlDown.includes(this.$mq));
+      return queryMedia.isMobile(this.$mq);
     },
 
     classFilterOff: function() {

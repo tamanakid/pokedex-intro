@@ -18,7 +18,6 @@
 
 
 <script>
-import { mqLayouts } from '@/config/vue-mq.config';
 
 export default {
 	name: 'PokedexList',

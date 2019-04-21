@@ -31,7 +31,7 @@
 <script>
 import MenuContentsView from './MenuContentsView.vue';
 import menuTitlesEnum from './menuTitlesEnum.js';
-import { mqLayouts } from '@/config/vue-mq.config';
+import { queryMedia } from '@/config/vue-mq.config';
 
 export default {
   name: 'MenuLayout',
@@ -53,7 +53,7 @@ export default {
 
   computed: {
     isTpDown: function() {
-      return mqLayouts.mediaTpDown.includes(this.$mq);
+      return queryMedia.isTabletPortraitDown(this.$mq);
     },
 
     arrowIconClass: function() {
@@ -76,7 +76,7 @@ export default {
     },
 
     checkMenuTitle: function() {
-      if (mqLayouts.mediaMlDown.includes(this.$mq)) {
+      if (queryMedia.isMobile(this.$mq)) {
         this.menuTitle = menuTitlesEnum[this.$router.currentRoute.name];
       } else {
         this.menuTitle = menuTitlesEnum.default;

@@ -12,7 +12,7 @@
 <script>
 import PokedexListView from './PokedexListView.vue'
 import PokedexSideboxView from './PokedexSideboxView.vue'
-import { mqLayouts } from '@/config/vue-mq.config';
+import { queryMedia } from '@/config/vue-mq.config';
 
 export default {
 	name: 'PokedexLayout',
@@ -39,7 +39,7 @@ export default {
 		},
 
 		isMobile: function() {
-			return (mqLayouts.mediaMlDown.includes(this.$mq));
+			return queryMedia.isMobile(this.$mq);
 		}
 	},
 

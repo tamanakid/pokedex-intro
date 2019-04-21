@@ -13,34 +13,28 @@ const mqConfig = () => {
     });
 }
 
-const mqLayouts = {
-    mediaMlDown: ["mp", "ml"],
-    mediaTpDown: ["mp", "ml", "tp"]
+
+const mediaMlDown = ["mp", "ml"];
+const mediaTpDown =  ["mp", "ml", "tp"];
+
+const queryMedia = {
+
+    isMobile: function(mq) {
+        return (mediaMlDown.includes(mq)); 
+    },
+
+    isTabletPortraitDown: function(mq) {
+        return (mediaTpDown.includes(mq)); 
+    },
+
+    isDesktop: function(mq) {
+        return (mq === 'd');
+    }
 }
+
 
 export { 
     mqConfig,
-    mqLayouts 
+    queryMedia
 };
 
-/*
-function queryMedia() {
-    let mediaMlDown = ["mp", "ml"];
-    let mediaTpDown =  ["mp", "ml", "tp"];
-
-    function isMlDown(mq) {
-        return (mediaMlDown.includes(mq)); 
-    }
-
-    function isTpDown(mq) {
-        return (mediaTpDown.includes(mq)); 
-    }
-
-}
-
-queryMedia {
-    mediaMlDown: ["mp", "ml"],
-    mediaTpDown: ["mp", "ml", "tp"]
-}
-
-*/
