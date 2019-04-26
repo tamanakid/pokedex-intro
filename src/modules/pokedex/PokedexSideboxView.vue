@@ -36,14 +36,13 @@ export default {
     'sidebox-description': PokedexSideboxDescriptionView,
     'sidebox-filters': PokedexSideboxFiltersView
   },
-  
-  /**
-   * Should it be passed the whole object instead? Analysis for after the Filter box is formatted and modularized
-   */
+
   props: {
     pokemonHovered: {
       type: Object,
-      default: {}
+      default: function() {
+        return {};
+      }
     }
   },
 
@@ -80,25 +79,6 @@ export default {
     offHoverFilters: function() {
       this.isFilterHovered = false;
     },
-
-		// may be better as a util (?) or maybe call the util from the store (?)
-		getRegnum: function(regnum) {
-			return "#" + this.regnumFormatting(regnum);
-		},
-
-		regnumFormatting: function(regnum) {
-      if (regnum) {
-        regnum = regnum.toString();
-			  while (regnum.length < 3) {
-				  regnum = "0" + regnum;
-        }
-        regnum = "#" + regnum;
-			  return regnum;
-      } else {
-        return '';
-      }
-			
-		}
 	}
 
 }

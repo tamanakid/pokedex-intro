@@ -1,29 +1,23 @@
 <template>
   <div class="pokedex-list">
 		<template v-for="pokemon in pokedexList">
-			<div class="pokedex-list__pokemon" :key="pokemon.id" @mouseenter="onHoverPokemon(pokemon, $event)" @mouseleave="offHoverPokemon(pokemon, $event)">
-				<div class="pokedex-list__pokemon__icon">
-					<img v-bind:src="pokemon.icon">
-				</div>
-				<div class="pokedex-list__pokemon__name" :class="bindType">
-					<span>{{ pokemon.name }}</span>
-				</div>
-				<div class="pokedex-list__pokemon__regnum">
-					<span>{{ pokemon.regnum }}</span>
-				</div>
-			</div>
+			<list-pokemon :key="pokemon.id" v-bind="pokemon" v-on:poke-hover="onPokeHover(pokemon)"></list-pokemon>
 		</template>
   </div>
 </template>
 
 
 <script>
+import PokedexListPokemonView from './PokedexListPokemonView.vue'
+import regnumMixin from '@/commons/mixins/regnumMixin'
 
 export default {
 	name: 'PokedexList',
 
+	mixins: [regnumMixin],
+
 	components: {
-		// none
+		'list-pokemon': PokedexListPokemonView
 	},
 
 	props: [
@@ -36,41 +30,9 @@ export default {
 		};
 	},
 
-	computed: {
-		/** 
-		 * Should be separated into a PokedexPokemonView, so each instance has its own isHovered attribute for the background
-		 */
-		bindType: function() {
-			return (this.isHovered) ? 'bg-green' : '';
-		}
-	},
-
 	methods: {
-		// may be better as a util (?) or maybe call the util from the store (?)
-		doPagination: function(pokedex) {
-			return pokedex.slice((this.currentPage)*25, (this.currentPage + 1)*25);
-		},
-
-		getRegnum: function(regnum) {
-			return "#" + this.regnumFormatting(regnum);
-		},
-
-		regnumFormatting: function(regnum) {
-			regnum = regnum.toString();
-			while (regnum.length < 3) {
-				regnum = "0" + regnum;
-			}
-			return regnum;
-		},
-
-		onHoverPokemon: function(pokemon, event) {
-			this.isHovered = true;
-			//console.log(pokemon);
-			this.$emit('test', pokemon);
-		},
-
-		offHoverPokemon: function(pokemon, event) {
-			this.isHovered = false;
+		onPokeHover: function(pokemon) {
+			this.$emit('poke-hover', pokemon);
 		}
 	}
 

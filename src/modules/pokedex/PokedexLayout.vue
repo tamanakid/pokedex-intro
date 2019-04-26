@@ -4,7 +4,7 @@
 			<span>National Pokedex</span>
 		</div>
 		<pokedex-sidebox v-bind:pokemon-hovered="pokemonHovered"></pokedex-sidebox> <!-- We ought to pass the hovered-on pokemon as a prop -->
-		<pokedex-list v-bind:pokedexList="pokedexPage" v-on:test="onPokeHover"></pokedex-list>
+		<pokedex-list v-bind:pokedexList="pokedexPage" v-on:poke-hover="onPokeHover"></pokedex-list>
 	</div>
 </template>
 
@@ -49,22 +49,8 @@ export default {
 			return pokedex.slice((this.currentPage)*25, (this.currentPage + 1)*25);
 		},
 
-		getRegnum: function(regnum) {
-			return "#" + this.regnumFormatting(regnum);
-		},
-
-		regnumFormatting: function(regnum) {
-			regnum = regnum.toString();
-			while (regnum.length < 3) {
-				regnum = "0" + regnum;
-			}
-			return regnum;
-		},
-
 		onPokeHover: function(pokemon) {
-			console.log("emit works");
 			this.pokemonHovered = pokemon;
-			console.log(this.pokemonHovered);
 		}
 	}
 

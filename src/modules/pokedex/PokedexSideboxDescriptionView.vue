@@ -7,33 +7,20 @@
 			<template v-else>
 				<img src="https://cdn.bulbagarden.net/upload/d/dc/GO_Pok%C3%A9_Ball.png">
 			</template>
-			<!--
-			<img src="https://cdn.bulbagarden.net/upload/2/21/001Bulbasaur.png">
-			-->
 		</div>
+
 		<div class="sidebox-description__regnum">
-			<span>{{ regnumFormatting(regnum) }}</span>
+			<span>{{ formatRegnum(regnum) }}</span>
 		</div>
 		<div class="sidebox-description__name">
 			<span>{{ name }}</span>
 		</div>
 
 		<div class="sidebox-description__types" :class="bindTypesGridClass">
-			<div v-for="type in types" class="sidebox-description__types__type poke-type" :class="getTypeClass(type)">
+			<div v-for="type in types" :key="type" class="sidebox-description__types__type poke-type" :class="getTypeClass(type)">
 				<span>{{ type }}</span>
 			</div>
 		</div>
-
-		<!--
-		<div class="sidebox-description__types">
-			<div class="sidebox-description__types__type poke-type" :class="getTypeClass(types)">
-				<span>{{ types ? types[0] : '' }}</span>
-			</div>
-			<div v-if="(types && types[1])" class="sidebox-description__types__type poke-type" :class="getTypeClass(types)">
-				<span>{{ (types && types[1]) ? types[1] : ''}}</span>
-			</div>
-		</div>
-		-->
 
 		<div v-if="height && weight" class="sidebox-description__details">
 			<div class="sidebox-description__details__height">
@@ -48,8 +35,12 @@
 
 
 <script>
+import regnumMixin from '@/commons/mixins/regnumMixin'
+
 export default {
 	name: 'PokedexSideboxDescription',
+
+	mixins: [regnumMixin],
 	
 	props: {
 		name: String,
@@ -59,7 +50,10 @@ export default {
         return [];
       }
 		},
-		regnum: Number,
+		regnum: {
+			type: Number,
+			default: null
+		},
 		height: String,
 		weight: String,
 		img: String
@@ -72,23 +66,6 @@ export default {
 	},
 
 	methods: {
-		getRegnum: function(regnum) {
-			return "#" + this.regnumFormatting(regnum);
-		},
-
-		regnumFormatting: function(regnum) {
-      if (regnum) {
-        regnum = regnum.toString();
-			  while (regnum.length < 3) {
-				  regnum = "0" + regnum;
-        }
-        regnum = "#" + regnum;
-			  return regnum;
-      } else {
-        return '';
-      }
-		},
-
 		getTypeClass: function(type) {
 			return 'poke-type-' + type.toLowerCase();
 		}
