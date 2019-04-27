@@ -219,6 +219,46 @@
       "weight": "83.8",
       "img": "https://cdn.bulbagarden.net/upload/a/a0/022Fearow.png",
       "icon": "https://cdn.bulbagarden.net/upload/3/35/022MS.png"
+    },
+    {
+      "id": 23,
+      "name": "Ekans",
+      "regnum": 23,
+      "types": ["Poison"],
+      "height": "6'07''",
+      "weight": "15.2",
+      "img": "https://cdn.bulbagarden.net/upload/f/fa/023Ekans.png",
+      "icon": "https://cdn.bulbagarden.net/upload/0/0d/023MS.png"
+    },
+    {
+      "id": 24,
+      "name": "Arbok",
+      "regnum": 24,
+      "types": ["Poison"],
+      "height": "11'06'",
+      "weight": "143.3",
+      "img": "https://cdn.bulbagarden.net/upload/c/cd/024Arbok.png",
+      "icon": "https://cdn.bulbagarden.net/upload/d/d3/024MS.png"
+    },
+    {
+      "id": 25,
+      "name": "Pikachu",
+      "regnum": 25,
+      "types": ["Electric"],
+      "height": "1'04''",
+      "weight": "13.2",
+      "img": "https://cdn.bulbagarden.net/upload/0/0d/025Pikachu.png",
+      "icon": "https://cdn.bulbagarden.net/upload/0/0f/025MS.png"
+    },
+    {
+      "id": 26,
+      "name": "Raichu",
+      "regnum": 26,
+      "types": ["Electric"],
+      "height": "2'07''",
+      "weight": "66.1",
+      "img": "https://cdn.bulbagarden.net/upload/8/88/026Raichu.png",
+      "icon": "https://cdn.bulbagarden.net/upload/d/da/026MS.png"
     }
   ]
 }
