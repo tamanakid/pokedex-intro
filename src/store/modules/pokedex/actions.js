@@ -14,6 +14,10 @@ const actions = {
       });
   },
 
+  setFilters: ({ commit }, filters) => {
+    commit('setFilters', filters);
+  },
+
 };
 
 

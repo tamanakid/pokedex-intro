@@ -46,7 +46,6 @@ export default {
 			let currentPosition = this.$el.scrollTop;
 			
 			if (currentPosition + containerHeight >= (wholeHeight)*0.9) {
-				console.log("call action!");
 				this.$emit('list-scroll-end');
 			}
 		}

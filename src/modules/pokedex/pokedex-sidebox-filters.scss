@@ -1,6 +1,87 @@
 .filters {
   font-family: $font-family-text;
   display: grid;
+  align-items: start;
+
+  &__name {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    &__title {
+      font-weight: bold;
+    }
+  }
+
+  &__dropdown {
+    display: grid;
+    align-items: start;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas:
+      "title"
+      "select"
+      "prompt";
+    
+    &__title {
+      grid-area: title;
+      font-weight: bold;
+    }
+    &__select {
+      grid-area: select;
+      display: grid;
+      grid-template-columns: 3fr 1fr;
+      grid-column-gap: 1em;
+    }
+    &__prompt {
+      grid-area: prompt;
+      color: $poke-scarlett-light;
+      font-size: 0.75em;
+      font-weight: bold;
+      padding-top: 0.5em;
+    }
+  }
+
+  &__typelist {
+    display: grid;
+    grid-template-rows: 1fr;
+
+    &__title {
+      padding-bottom: 0.6em;
+      font-weight: bold;
+      &__ann {
+        font-size: 0.5em;
+      }
+    }
+
+    &__list {
+      display: grid;
+      grid-template-columns: 4fr 1fr 1fr;
+      justify-items: start;
+      align-items: center;
+      padding: 0.5em 1em;
+      &__restrained, &__remove {
+        cursor: pointer;
+        &:hover {
+          color: #fff; 
+        }
+      }
+    }
+  }
+
+
+  @include media-tl-up {
+    grid-template-rows: 3em 4.5em 1fr;
+    grid-row-gap: 1em;
+  }
+
+  @include media-d {
+    grid-row-gap: 1em;
+    padding: 2em 1em;
+  }
+}
+
+/*
+.filters {
+  font-family: $font-family-text;
+  display: grid;
   align-items: center;
 
   &__param {
@@ -29,8 +110,8 @@
     grid-row-gap: 1em;
     grid-column-gap: 2em;
     grid-template-areas:
-      "name stats"
-      "type stats";
+      "name selected"
+      "type selected";
     align-items: start;
 
     &__name {
@@ -40,8 +121,8 @@
       grid-area: type;
     }
 
-    &__stats {
-      grid-area: stats;
+    &__selected {
+      grid-area: selected;
     }
   }
 
@@ -75,3 +156,4 @@
     }
   }
 }
+*/

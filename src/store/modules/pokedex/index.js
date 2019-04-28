@@ -4,7 +4,11 @@ import mutations from './mutations';
 
 
 const state = {
-  pokemon: []
+  pokemon: [],
+  filters: {
+    name: "",
+    types: []
+  }
 };
 
 

@@ -3,7 +3,7 @@
 		<div class="pokedex__title" v-if="!(isMobile)">
 			<span>National Pokedex</span>
 		</div>
-		<pokedex-sidebox v-bind:pokemon-hovered="pokemonHovered"></pokedex-sidebox> <!-- We ought to pass the hovered-on pokemon as a prop -->
+		<pokedex-sidebox v-bind:pokemon-hovered="pokemonHovered"></pokedex-sidebox>
 		<pokedex-list v-bind:pokedexList="pokedexPage" v-on:poke-hover="onPokeHover" v-on:list-scroll-end="onListScrollEnd"></pokedex-list>
 	</div>
 </template>
@@ -29,7 +29,6 @@ export default {
 	data: function() {
 		return {
 			pagesLoaded: 0,
-			allPokemonLoaded: [],
 			pokemonHovered: {},
 		};
 	},
@@ -45,7 +44,7 @@ export default {
 	},
 
 	methods: {
-		// may be better as a util (?) or maybe call the util from the store (?)
+		// better as mixin or at store (?)
 		doPagination: function(pokedex) {
 			return pokedex.slice(0, (this.pagesLoaded + 1)*18);
 		},
@@ -55,7 +54,6 @@ export default {
 		},
 
 		onListScrollEnd: function() {
-			console.log("scroll emitted!");
 			this.pagesLoaded++;
 		}
 	}
