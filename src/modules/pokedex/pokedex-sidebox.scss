@@ -84,13 +84,16 @@
   }
 
   @include media-tp {
-   z-index: -1; // pega'o con tirro
+    //z-index: -1; // pega'o con tirro
     &__filters {
       display: grid;
-      grid-template-rows: auto 1fr;
-      align-content: center;
-      align-items: center;
+      grid-template-rows: 1.5em 1fr;
+      align-content: start;
+      align-items: start;
       padding: 1em 2em;
+      &__detail {
+        height: 100%;
+      }
     }
   }
 

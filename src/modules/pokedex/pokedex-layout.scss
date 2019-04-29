@@ -32,7 +32,7 @@
 
 	@include media-tp-down {
 		grid-template-columns: 100%;
-		grid-row-gap: 4vh;
+		grid-row-gap: 3vh;
 		grid-template-areas:
 			"title"
 			"box"
@@ -45,7 +45,7 @@
 
 	
 	@include media-tp {
-		grid-template-rows: 5vh 20vh 1fr;
+		grid-template-rows: 4vh 22vh 1fr;
 	}
 
 	@include media-ml-down {

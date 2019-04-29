@@ -109,6 +109,7 @@ export default {
 			this.types = this.types.filter(function(type) {
 				return type !== typeToRemove;
 			});
+			this.textPrompt = "";
 		}
 	}
 

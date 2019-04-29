@@ -1,9 +1,15 @@
 .filters {
   font-family: $font-family-text;
-  display: grid;
   align-items: start;
+  display: grid;
+  grid-template-areas:
+      "name"
+      "dropdown"
+      "typelist";
+  
 
   &__name {
+    grid-area: name;
     display: grid;
     grid-template-rows: 1fr 1fr;
     &__title {
@@ -12,6 +18,7 @@
   }
 
   &__dropdown {
+    grid-area: dropdown;
     display: grid;
     align-items: start;
     grid-template-rows: 1fr 1fr 1fr;
@@ -40,6 +47,7 @@
   }
 
   &__typelist {
+    grid-area: typelist;
     display: grid;
     grid-template-rows: 1fr;
 
@@ -66,7 +74,6 @@
     }
   }
 
-
   @include media-tl-up {
     grid-template-rows: 3em 4.5em 1fr;
     grid-row-gap: 1em;
@@ -76,6 +83,17 @@
     grid-row-gap: 1em;
     padding: 2em 1em;
   }
+
+  @include media-tp-down {
+    height: 100%;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-column-gap: 2em;
+    grid-template-areas:
+      "name typelist"
+      "dropdown typelist";
+  }
+
 }
 
 /*
