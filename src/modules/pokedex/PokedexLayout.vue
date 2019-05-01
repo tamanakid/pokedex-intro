@@ -4,7 +4,7 @@
 			<span>National Pokedex</span>
 		</div>
 		<pokedex-sidebox v-bind:pokemon-hovered="pokemonHovered"></pokedex-sidebox>
-		<pokedex-list v-bind:pokedexList="pokedexPage" v-on:poke-hover="onPokeHover" v-on:list-scroll-end="onListScrollEnd"></pokedex-list>
+		<pokedex-list v-on:poke-hover="onPokeHover" ></pokedex-list>
 	</div>
 </template>
 
@@ -28,33 +28,19 @@ export default {
 
 	data: function() {
 		return {
-			pagesLoaded: 0,
 			pokemonHovered: {},
 		};
 	},
 
 	computed: {
-		pokedexPage: function() {
-			return this.doPagination(this.$store.getters['pokedex/getPokedexFiltered']);
-		},
-
 		isMobile: function() {
 			return queryMedia.isMobile(this.$mq);
 		}
 	},
 
 	methods: {
-		// better as mixin or at store (?)
-		doPagination: function(pokedex) {
-			return pokedex.slice(0, (this.pagesLoaded + 1)*18);
-		},
-
 		onPokeHover: function(pokemon) {
 			this.pokemonHovered = pokemon;
-		},
-
-		onListScrollEnd: function() {
-			this.pagesLoaded++;
 		}
 	}
 

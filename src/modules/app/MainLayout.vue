@@ -37,7 +37,7 @@ export default {
   }
   
   @include media-tp {
-		padding: 5rem 4rem;
+		padding: 5rem 4rem 2rem;
 	}
 
   @include media-ml-down {

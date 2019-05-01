@@ -21,21 +21,29 @@ export default {
 		'list-pokemon': PokedexListPokemonView
 	},
 
-	props: [
-    "pokedexList"
-  ],
-
-	data: function() {
-		return {
-			isHovered: false
-		};
-	},
-
 	created: function() {
 		this.onScroll = debounce(this.onScroll, 100);
 	},
 
+	data: function() {
+		return {
+			pagesLoaded: 0,
+			isHovered: false
+		};
+	},
+
+	computed: {
+		pokedexList: function() {
+			return this.doPagination(this.$store.getters['pokedex/getPokedexFiltered']);
+		},
+	},
+
 	methods: {
+		// better as mixin or at store (?)
+		doPagination: function(pokedex) {
+			return pokedex.slice(0, (this.pagesLoaded + 1)*18);
+		},
+
 		onPokeHover: function(pokemon) {
 			this.$emit('poke-hover', pokemon);
 		},
@@ -46,7 +54,7 @@ export default {
 			let currentPosition = this.$el.scrollTop;
 			
 			if (currentPosition + containerHeight >= (wholeHeight)*0.9) {
-				this.$emit('list-scroll-end');
+				this.pagesLoaded++;
 			}
 		}
 	}

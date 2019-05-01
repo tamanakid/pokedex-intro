@@ -1,12 +1,7 @@
 .filters {
   font-family: $font-family-text;
   align-items: start;
-  display: grid;
-  grid-template-areas:
-      "name"
-      "dropdown"
-      "typelist";
-  
+  display: grid;  
 
   &__name {
     grid-area: name;
@@ -61,10 +56,42 @@
 
     &__list {
       display: grid;
-      grid-template-columns: 4fr 1fr 1fr;
+      grid-template-columns: 4fr 1fr;
       justify-items: start;
       align-items: center;
-      padding: 0.5em 1em;
+    }
+  }
+
+  &__strict {
+    grid-area: strict;
+  }
+
+  &__clear {
+    grid-area: clear;
+  }
+
+  @include media-tl-up {
+    grid-template-rows: 3em 4em 10em 2em;
+    grid-template-columns: 1fr 1fr;
+    grid-row-gap: 1em;
+    grid-template-areas:
+    "name name"
+    "dropdown dropdown"
+    "typelist typelist"
+    "strict clear";
+
+    &__typelist {
+      &__list {
+        padding: 0.5em 1em;
+      }
+    }
+  }
+
+  @include media-d {
+    grid-row-gap: 1em;
+    padding: 1em;
+    
+    &__typelist__list {
       &__restrained, &__remove {
         cursor: pointer;
         &:hover {
@@ -74,24 +101,33 @@
     }
   }
 
-  @include media-tl-up {
-    grid-template-rows: 3em 4.5em 1fr;
-    grid-row-gap: 1em;
-  }
-
-  @include media-d {
-    grid-row-gap: 1em;
-    padding: 2em 1em;
-  }
-
   @include media-tp-down {
     height: 100%;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 4em 5em 1fr;
     grid-column-gap: 2em;
     grid-template-areas:
       "name typelist"
-      "dropdown typelist";
+      "dropdown typelist"
+      "strict clear";
+
+    &__typelist {
+      grid-auto-rows: 2em;
+      grid-row-gap: 0.75em;
+      grid-template-columns: 1fr 1fr;
+      grid-column-gap: 1.5em;
+      grid-template-areas: "title title";
+      padding: 0 0.5em;
+
+      &__title {
+        grid-area: title;
+      }
+      &__list {
+        justify-items: center;
+        border: 1px solid #df4f4f;
+        border-radius: 1em;
+      }
+    }
   }
 
 }
