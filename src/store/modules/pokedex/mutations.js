@@ -5,25 +5,35 @@ const mutations = {
     state.pokemon = data;
   },
 
-  setFilters: (state, filters) => {
-    state.filters.name = filters.name;
-    state.filters.types = filters.types;
-  },
-
   setFilterName: (state, name) => {
     state.filters.name = name;
   },
 
   pushFilterType: (state, type) => {
-    state.filters.types.push(type);
+    if (state.filters.isStrict) {
+      state.filters.strictTypes.list.push(type);
+    } else {
+      state.filters.types.list.push(type);
+    }
   },
 
   removeFilterType: (state, index) => {
-    state.filters.types.splice(index, 1);
+    if (state.filters.isStrict) {
+      state.filters.strictTypes.list.splice(index, 1);
+    } else {
+      state.filters.types.list.splice(index, 1);
+    }
   },
 
-  toggleTypeRestrain: (state, index) => {
-    state.filters.types[index].restrained = !state.filters.types[index].restrained;
+  toggleStrictFilter: (state) => {
+    state.filters.isStrict = !state.filters.isStrict;
+  },
+
+  clearFilters: (state) => {
+    state.filters.name = "";
+    state.filters.types.list = [];
+    state.filters.strictTypes.list = [];
+    state.filters.isStrict = false; 
   }
 
 };

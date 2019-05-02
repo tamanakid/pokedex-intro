@@ -7,7 +7,15 @@ const state = {
   pokemon: [],
   filters: {
     name: "",
-    types: []
+    types: {
+      list: [],
+      maxLength: 4
+    },
+    strictTypes: {
+      list: [],
+      maxLength: 2
+    },
+    isStrict: false
   }
 };
 

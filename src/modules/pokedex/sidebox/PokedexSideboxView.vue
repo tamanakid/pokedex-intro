@@ -26,7 +26,7 @@
 
 <script>
 import PokedexSideboxDescriptionView from './PokedexSideboxDescriptionView.vue'
-import PokedexSideboxFiltersView from './PokedexSideboxFiltersView.vue'
+import PokedexSideboxFiltersView from './filters/PokedexSideboxFiltersView.vue'
 import { queryMedia } from '@/config/vue-mq.config';
 
 export default {

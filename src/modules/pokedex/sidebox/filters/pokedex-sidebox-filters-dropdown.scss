@@ -1,0 +1,30 @@
+/* Pending some styling */
+
+.dropdown {
+  grid-area: dropdown;
+  display: grid;
+  align-items: start;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-areas:
+    "title"
+    "select"
+    "prompt";
+  
+  &__title {
+    grid-area: title;
+    font-weight: bold;
+  }
+  &__select {
+    grid-area: select;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    grid-column-gap: 1em;
+  }
+  &__prompt {
+    grid-area: prompt;
+    color: $poke-scarlett-light;
+    font-size: 0.75em;
+    font-weight: bold;
+    padding-top: 0.5em;
+  }
+}

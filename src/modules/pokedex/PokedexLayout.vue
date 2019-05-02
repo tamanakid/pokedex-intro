@@ -10,8 +10,8 @@
 
 
 <script>
-import PokedexListView from './PokedexListView.vue'
-import PokedexSideboxView from './PokedexSideboxView.vue'
+import PokedexListView from './list/PokedexListView.vue'
+import PokedexSideboxView from './sidebox/PokedexSideboxView.vue'
 import { queryMedia } from '@/config/vue-mq.config';
 
 export default {

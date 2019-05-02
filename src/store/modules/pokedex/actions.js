@@ -14,29 +14,32 @@ const actions = {
       });
   },
 
-  setFilters: ({ commit }, filters) => {
-    commit('setFilters', filters);
-  },
-
   setFilterName: ({ commit }, name) => {
     commit('setFilterName', name);
   },
 
   pushFilterType: ({ commit }, type) => {
-    commit('pushFilterType', {
-      name: type,
-      restrained: false
-    });
+    commit('pushFilterType', type);
   },
 
   removeFilterType: ({ commit, state }, typeToRemove) => {
-    let index = state.filters.types.indexOf(typeToRemove);
+    let index;
+    
+    if (state.filters.isStrict) {
+      index = state.filters.strictTypes.list.indexOf(typeToRemove);
+    } else {
+      index = state.filters.types.list.indexOf(typeToRemove);
+    }
+    
     commit('removeFilterType', index);
   },
 
-  toggleTypeRestrain: ({ commit, state }, typeToRestrain) => {
-    let index = state.filters.types.indexOf(typeToRestrain);
-    commit('toggleTypeRestrain', index);
+  toggleStrictFilter: ({ commit }) => {
+    commit('toggleStrictFilter');
+  },
+
+  clearFilters: ({ commit }) => {
+    commit('clearFilters');
   }
 
 };

@@ -1,0 +1,28 @@
+.pokebtn {
+	border-width: 0.25em;
+	border-style: solid;
+	border-radius: 1em;
+	color: white;
+
+	&-action {
+		background: rgba($poke-scarlett-mid, 0.1);
+		border-color: rgba($poke-scarlett-mid, 0.8);
+	}
+
+	&-off {
+		background: rgba($poke-scarlett-mid, 0.1);
+		border-color: rgba($poke-scarlett-mid, 0.1);
+		@include media-d {
+			&:hover {
+				transition: background ease 0.5s;
+				background: rgba($poke-scarlett-mid, 0.8);
+			}
+		}
+	
+	}
+
+	&-on {
+		background: rgba($poke-scarlett-mid, 0.8);
+		border-color: rgba($poke-scarlett-mid, 0.8);
+	}
+}
