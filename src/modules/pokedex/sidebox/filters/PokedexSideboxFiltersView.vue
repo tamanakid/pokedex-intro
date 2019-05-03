@@ -14,7 +14,7 @@
 			<button class="pokebtn" :class="bindIsStrictClass" @click="onToggleStrict">Strict Filters</button>
 		</div>
 		<div class="filters__clear">
-			<button class="pokebtn pokebtn-action" @click="onClearFilters">Clear Filters</button>
+			<button class="pokebtn pokebtn-active" @click="onClearFilters">Clear Filters</button>
 		</div>
 
 	</div>

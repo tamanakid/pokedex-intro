@@ -6,7 +6,7 @@
 				<option disabled value="">Select a Type</option>
 				<option v-for="type in typesEnum" :key="type">{{ type }}</option>
 			</select>
-			<button class="dropdown__select__button pokebtn pokebtn-action" :disabled="isDisabledDropdownButton" @click="addTypeSelected">Add</button>
+			<button class="dropdown__select__button pokebtn" :class="bindButtonActive" :disabled="isDisabledDropdownButton" @click="addTypeSelected">Add</button>
 		</div>
 		<div class="dropdown__prompt" v-show="prompt">
 			<span>{{ prompt }}</span>
@@ -34,6 +34,10 @@ export default {
 	},
 
 	computed: {
+		bindButtonActive: function() {
+			return (this.isDisabledDropdownButton) ? 'pokebtn-inactive' : 'pokebtn-active';
+		},
+
 		isDisabledDropdownButton: function() {
 			return (this.filterList.list.length >= this.filterList.maxLength) || (!this.typeSelected);
 		}

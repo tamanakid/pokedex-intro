@@ -7,9 +7,9 @@
       <div class="pokedex-box__filters__title">
         <span>Filters</span>
       </div>
-      <template v-if="showPhoneFilter">
-        <div class="pokedex__box__filters__dropdown">
-          <span>X</span>
+      <template v-if="isPhone">
+        <div class="pokedex-box__filters__dropdown" @click="onTogglePhoneFilter">
+          <i class="fa fa-xs fa-filter" aria-hidden="true"></i>
         </div>
       </template>
       <template v-else>
@@ -49,7 +49,8 @@ export default {
   
 	data: function() {
 		return {
-			isFilterHovered: false
+			isFilterHovered: false,
+      togglePhoneFilter: false
 		};
   },
 
@@ -62,9 +63,11 @@ export default {
       return (queryMedia.isDesktop(this.$mq)) ? this.isFilterHovered : true;      
     },
 
-    showPhoneFilter: function() {
+    isPhone: function() {
       return queryMedia.isMobile(this.$mq);
     },
+
+    
 
     classFilterOff: function() {
       return this.showFilterOptions ? '' : 'pokedex-box__filters__detail_off';
@@ -79,6 +82,10 @@ export default {
     offHoverFilters: function() {
       this.isFilterHovered = false;
     },
+
+    onTogglePhoneFilter: function() {
+      this.togglePhoneFilter = !this.togglePhoneFilter;
+    }
 	}
 
 }

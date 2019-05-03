@@ -4,9 +4,14 @@
 	border-radius: 1em;
 	color: white;
 
-	&-action {
+	&-active {
 		background: rgba($poke-scarlett-mid, 0.1);
 		border-color: rgba($poke-scarlett-mid, 0.8);
+	}
+	&-inactive {
+		background: rgba($poke-scarlett-mid, 0.1);
+		border-color: rgba($poke-scarlett-mid, 0.4);
+		color: rgba($poke-scarlett-mid, 0.3)
 	}
 
 	&-off {
