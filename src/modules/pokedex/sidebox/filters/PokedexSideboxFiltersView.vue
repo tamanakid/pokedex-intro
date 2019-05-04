@@ -21,10 +21,13 @@
 </template>
 
 
+
 <script>
 import FiltersDropdown from './PokedexSideboxFiltersDropdownView.vue'
 import FiltersTypelist from './PokedexSideboxFiltersTypelistView.vue'
+import { mapState } from 'vuex'
 import debounce from 'lodash.debounce';
+
 
 export default {
 	name: 'PokedexSideboxFilters',
@@ -34,9 +37,11 @@ export default {
 		'typelist': FiltersTypelist
 	},
 
+
 	created: function() {
 		this.setName = debounce(this.setName, 500);
 	},
+
 
 	data: function() {
 		return {
@@ -44,27 +49,23 @@ export default {
 		}
 	},
 
-	computed: {
-		getName: function() {
-			return this.$store.getters['pokedex/getFilterName'];
-		},
 
-		filterList: function() {
-			if (this.isStrict) {
-				return this.$store.getters['pokedex/getFilterStrictTypes'];
+	computed:	mapState({
+		getName: 'pokedex/name',
+
+		filterList: function(state) {
+			if (state.pokedex.filters.isStrict) {
+				return state.pokedex.filters.strictTypes;
 			} else {
-				return this.$store.getters['pokedex/getFilterTypes'];
+				return state.pokedex.filters.types;
 			}
 		},
-		
-		isStrict: function() {
-			return this.$store.getters['pokedex/getIsFilterStrict'];
-		},
 
-		bindIsStrictClass: function() {
-			return (this.isStrict) ? 'pokebtn-on' : 'pokebtn-off';
+		bindIsStrictClass: function(state) {
+			return (state.pokedex.filters.isStrict) ? 'pokebtn-on' : 'pokebtn-off';
 		}
-	},
+	}),
+
 
 	methods: {
 		setName(ev) {
@@ -84,11 +85,11 @@ export default {
 		changeTextPrompt: function(textPrompt) {
 			this.textPrompt = textPrompt;
 		}
-
 	}
 
 }
 </script>
+
 
 
 <style scoped lang="scss" src="./pokedex-sidebox-filters.scss">

@@ -1,7 +1,9 @@
 <template>
-  <div>
-    <menu-layout class="layout__menu"></menu-layout>
-    <router-view class="layout__content"></router-view>
+	<div>
+		<menu-layout class="layout__menu"></menu-layout>
+		<transition name='router-fade' mode='out-in'>
+			<router-view class="layout__content"></router-view>
+    </transition>
   </div>
 </template>
 
@@ -21,6 +23,15 @@ export default {
 
 
 <style scoped lang="scss">
+.router-fade-enter-to, .router-fade-leave {
+	transition: opacity 0.75s;
+}
+
+.router-fade-enter, .router-fade-leave-to {
+	opacity: 0
+}
+
+
 /*
 .layout__menu {
 	background-color: $poke-scarlett-dark;

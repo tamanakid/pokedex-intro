@@ -14,6 +14,8 @@
 
 
 <script>
+import { mapState } from 'vuex'
+
 export default {
 	name: 'PokedexSideboxFiltersTypelist',
 
@@ -21,12 +23,11 @@ export default {
 		filterList: Object
 	},
 
-	computed: {
-		bindIsStrictClass: function() {
-			let isStrict = this.$store.getters['pokedex/getIsFilterStrict'];
-			return isStrict ? 'filters__typelist_strict-true' : 'filters__typelist_strict-false'; 
+	computed: mapState({
+		bindIsStrictClass: function(state) {
+			return (state.pokedex.filters.isStrict) ? 'filters__typelist_strict-true' : 'filters__typelist_strict-false'; 
 		},
-	},
+	}),
 
 	methods: {
 		onRemoveType: function(typeToRemove) {

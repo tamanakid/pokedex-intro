@@ -30,23 +30,6 @@ const getters = {
     });
   },
 
-
-  getFilterName: (state) => {
-    return state.filters.name;
-  },
-
-  getFilterTypes: (state) => {
-    return state.filters.types;
-  },
-
-  getFilterStrictTypes: (state) => {
-    return state.filters.strictTypes;
-  },
-
-  getIsFilterStrict: (state) => {
-    return state.filters.isStrict;
-  },
-
 };
 
 export { getters as default };

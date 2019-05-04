@@ -1,5 +1,5 @@
 <template>
-  <div class="list-pokemon" :class="bindClasses" @mouseenter="onHoverPokemon" @mouseleave="offHoverPokemon">
+  <div class="list-pokemon" :class="bindClasses" @mouseenter="onHoverPokemon" @mouseleave="offHoverPokemon" @click="onNavigateToPokemonData">
     <div class="list-pokemon__icon">
       <img v-bind:src="icon">
     </div>
@@ -60,7 +60,14 @@ export default {
 
 		offHoverPokemon: function() {
 			this.isHovered = false;
-		}
+		},
+
+    onNavigateToPokemonData: function() {
+      this.$router.push({
+        name: 'pokemon-data',
+        params: { regnum: this.regnum }
+      });
+    }
 	}
 
 }
