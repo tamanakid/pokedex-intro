@@ -1,0 +1,54 @@
+.pokemon-data {
+	display: grid;
+
+	&__summary {
+		grid-area: summary;
+	}
+
+	&__img {
+		grid-area: img;
+		display: grid;
+    justify-items: center;
+    align-items: center;
+		& > img {
+			width: 80%;
+		}
+	}
+
+	&__stats {
+		display: grid;
+		grid-area: stats;
+		align-content: center;
+	}
+
+	&__moves {
+		grid-area: moves;
+	}
+
+	@include media-mp {
+		grid-template-rows: 1fr 1fr 1fr 1fr;
+		grid-template-columns: 1fr;
+		grid-template-areas:
+			"img"
+			"summary"
+			"stats"
+			"moves";
+	}
+
+	@include media-ml-up {
+		grid-template-rows: 1fr 1fr 1fr;
+		grid-template-columns: 1fr 1fr;
+		grid-template-areas:
+			"summary img"
+			"stats stats"
+			"moves moves";
+	}
+
+	@include media-tl-up {
+		grid-template-rows: 1fr 1fr;
+		grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+		grid-template-areas:
+			"summary summary summary summary img img"
+			"stats stats stats moves moves moves";
+	}
+}

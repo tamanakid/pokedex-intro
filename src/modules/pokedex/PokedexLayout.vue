@@ -22,10 +22,6 @@ export default {
 		'pokedex-sidebox': PokedexSideboxView
 	},
 
-	beforeCreate: function() {
-		this.$store.dispatch('pokedex/fetchPokedex');
-	},
-
 	data: function() {
 		return {
 			pokemonHovered: {},

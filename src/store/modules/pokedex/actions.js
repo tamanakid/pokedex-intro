@@ -5,22 +5,29 @@ const actions = {
 
   // Perhaps it is better to do the actual filtering in a global util?
   fetchPokedex: ({ commit }) => {
-    axios.get("http://localhost:3000/pokemon-summary")
+    return new Promise((resolve, reject) => {
+      axios.get("http://localhost:3000/pokedex")
       .then(response => {
-        commit('setPokedex', response.data);
+        commit('UPDATE_POKEDEX', response.data);
+        resolve();
       })
       .catch(() => {
-        commit('setPokedex', null);
+        commit('UPDATE_POKEDEX', null);
+        reject();
       });
+    })
   },
+
 
   setFilterName: ({ commit }, name) => {
-    commit('setFilterName', name);
+    commit('UPDATE_FILTER_NAME', name);
   },
 
+
   pushFilterType: ({ commit }, type) => {
-    commit('pushFilterType', type);
+    commit('INSERT_FILTER_TYPE', type);
   },
+
 
   removeFilterType: ({ commit, state }, typeToRemove) => {
     let index;
@@ -31,17 +38,18 @@ const actions = {
       index = state.filters.types.list.indexOf(typeToRemove);
     }
     
-    commit('removeFilterType', index);
+    commit('DELETE_FILTER_TYPE', index);
   },
+
 
   toggleStrictFilter: ({ commit }) => {
-    commit('toggleStrictFilter');
+    commit('UPDATE_FILTER_STRICT');
   },
 
-  clearFilters: ({ commit }) => {
-    commit('clearFilters');
-  }
 
+  clearFilters: ({ commit }) => {
+    commit('DELETE_ALL_FILTERS');
+  }
 };
 
 

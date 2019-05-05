@@ -26,7 +26,7 @@ export default {
 
   methods: {
     onNavigate: function(route) {
-      this.$router.push(route);
+      this.$router.push({ name: route });
     }
   }
 

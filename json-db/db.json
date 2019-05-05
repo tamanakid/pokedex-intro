@@ -1,5 +1,5 @@
 {
-  "pokemon-summary": [
+  "pokedex": [
     {
       "id": 1,
       "name": "Bulbasaur",
@@ -829,6 +829,270 @@
       "weight": "33.1",
       "img": "https://cdn.bulbagarden.net/upload/f/f8/083Farfetch%27d.png",
       "icon": "https://cdn.bulbagarden.net/upload/5/57/083MS.png"
+    }
+  ],
+
+  "pokemon-detail": [
+    {
+      "id": 1,
+      "name": "Bulbasaur",
+      "regnum": 1,
+      "types": ["Grass", "Poison"],
+      "height": "2'04''",
+      "weight": "15.2",
+      "img": "https://cdn.bulbagarden.net/upload/2/21/001Bulbasaur.png",
+      "icon": "https://cdn.bulbagarden.net/upload/e/ec/001MS.png",
+      "stats": {
+        "hp": 45,
+        "attack": 49,
+        "defense": 49,
+        "spAtk": 65,
+        "spDef": 65,
+        "speed": 45 
+      },
+      "moves": [1, 2, 3, 4]
+    },
+    {
+      "id": 2,
+      "name": "Ivysaur",
+      "regnum": 2,
+      "types": ["Grass", "Poison"],
+      "height": "3'03''",
+      "weight": "28.7",
+      "img": "https://cdn.bulbagarden.net/upload/7/73/002Ivysaur.png",
+      "icon": "https://cdn.bulbagarden.net/upload/6/6b/002MS.png",
+      "stats": {
+        "hp": 60,
+        "attack": 62,
+        "defense": 63,
+        "spAtk": 80,
+        "spDef": 80,
+        "speed": 60 
+      },
+      "moves": [5, 2, 6, 7]
+    },
+    {
+      "id": 3,
+      "name": "Venusaur",
+      "regnum": 3,
+      "types": ["Grass", "Poison"],
+      "height": "6'07''",
+      "weight": "220.5",
+      "img": "https://cdn.bulbagarden.net/upload/a/ae/003Venusaur.png",
+      "icon": "https://cdn.bulbagarden.net/upload/d/df/003MS.png",
+      "stats": {
+        "hp": 80,
+        "attack": 82,
+        "defense": 83,
+        "spAtk": 100,
+        "spDef": 100,
+        "speed": 80 
+      },
+      "moves": [5, 3, 8, 9]
+    },
+    {
+      "id": 4,
+      "name": "Charmander",
+      "regnum": 4,
+      "types": ["Fire"],
+      "height": "2'00''",
+      "weight": "18.7",
+      "img": "https://cdn.bulbagarden.net/upload/7/73/004Charmander.png",
+      "icon": "https://cdn.bulbagarden.net/upload/b/bb/004MS.png",
+      "stats": {
+        "hp": 39,
+        "attack": 52,
+        "defense": 43,
+        "spAtk": 60,
+        "spDef": 50,
+        "speed": 65 
+      },
+      "moves": [10, 3, 11, 12]
+    },
+    {
+      "id": 5,
+      "name": "Charmeleon",
+      "regnum": 5,
+      "types": ["Fire"],
+      "height": "3'07''",
+      "weight": "41.9",
+      "img": "https://cdn.bulbagarden.net/upload/4/4a/005Charmeleon.png",
+      "icon": "https://cdn.bulbagarden.net/upload/d/dc/005MS.png",
+      "stats": {
+        "hp": 58,
+        "attack": 64,
+        "defense": 58,
+        "spAtk": 80,
+        "spDef": 65,
+        "speed": 80 
+      },
+      "moves": [15, 12, 13, 14]
+    },
+    {
+      "id": 6,
+      "name": "Charizard",
+      "regnum": 6,
+      "types": ["Fire", "Flying"],
+      "height": "5'07'",
+      "weight": "199.5",
+      "img": "https://cdn.bulbagarden.net/upload/7/7e/006Charizard.png",
+      "icon": "https://cdn.bulbagarden.net/upload/0/01/006MS.png",
+      "stats": {
+        "hp": 78,
+        "attack": 84,
+        "defense": 78,
+        "spAtk": 109,
+        "spDef": 85,
+        "speed": 100 
+      },
+      "moves": [17, 13, 16, 18]
+    }
+  ],
+
+  "moves": [
+    {
+      "id": 1,
+      "name": "Vine Whip",
+      "type": "Grass",
+      "power": 35,
+      "accuracy": 100,
+      "pp": 10
+    },
+    {
+      "id": 2,
+      "name": "PoisonPowder",
+      "type": "Poison",
+      "power": 0,
+      "accuracy": 75,
+      "pp": 35
+    },
+    {
+      "id": 3,
+      "name": "Growl",
+      "type": "Normal",
+      "power": 0,
+      "accuracy": 0,
+      "pp": 40
+    },
+    {
+      "id": 4,
+      "name": "Tackle",
+      "type": "Normal",
+      "power": 35,
+      "accuracy": 95,
+      "pp": 35
+    },
+    {
+      "id": 5,
+      "name": "Razor Leaf",
+      "type": "Grass",
+      "power": 55,
+      "accuracy": 95,
+      "pp": 25
+    },
+    {
+      "id": 6,
+      "name": "Sweet Scent",
+      "type": "Normal",
+      "power": 55,
+      "accuracy": 95,
+      "pp": 25
+    },
+    {
+      "id": 7,
+      "name": "Pound",
+      "type": "Normal",
+      "power": 40,
+      "accuracy": 100,
+      "pp": 35
+    },
+    {
+      "id": 8,
+      "name": "Solarbeam",
+      "type": "Grass",
+      "power": 120,
+      "accuracy": 100,
+      "pp": 10
+    },
+    {
+      "id": 9,
+      "name": "Synthesis",
+      "type": "Grass",
+      "power": 0,
+      "accuracy": 0,
+      "pp": 5
+    },
+    {
+      "id": 10,
+      "name": "Scratch",
+      "type": "Normal",
+      "power": 40,
+      "accuracy": 100,
+      "pp": 35
+    },
+    {
+      "id": 11,
+      "name": "Ember",
+      "type": "Fire",
+      "power": 40,
+      "accuracy": 100,
+      "pp": 25
+    },
+    {
+      "id": 12,
+      "name": "Smokescreen",
+      "type": "Normal",
+      "power": 0,
+      "accuracy": 100,
+      "pp": 20
+    },
+    {
+      "id": 13,
+      "name": "Flamethrower",
+      "type": "Fire",
+      "power": 95,
+      "accuracy": 100,
+      "pp": 15
+    },
+    {
+      "id": 14,
+      "name": "Scary Face",
+      "type": "Normal",
+      "power": 0,
+      "accuracy": 90,
+      "pp": 10
+    },
+    {
+      "id": 15,
+      "name": "Rage",
+      "type": "Normal",
+      "power": 20,
+      "accuracy": 100,
+      "pp": 20
+    },
+    {
+      "id": 16,
+      "name": "Wing Attack",
+      "type": "Flying",
+      "power": 60,
+      "accuracy": 100,
+      "pp": 35
+    },
+    {
+      "id": 17,
+      "name": "Slash",
+      "type": "Normal",
+      "power": 70,
+      "accuracy": 100,
+      "pp": 20
+    },
+    {
+      "id": 18,
+      "name": "Dragon Rage",
+      "type": "Dragon",
+      "power": 0,
+      "accuracy": 100,
+      "pp": 10
     }
   ]
 }

@@ -57,3 +57,13 @@ $type-colors: (
     dragon: #31f,
     dark: #433
 );
+
+
+/* The type 'buttons' should be components, they are used heavily */
+.poke-type {
+	@each $type, $color in $type-colors {
+		&-#{$type} {
+			background: $color;
+		}
+	}
+}
