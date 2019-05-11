@@ -5,6 +5,7 @@ import router from './router'
 import { mqConfig } from './config/vue-mq.config'
 
 import App from './App.vue'
+import './commons/filters'
 
 
 Vue.config.productionTip = false

@@ -58,6 +58,16 @@ $type-colors: (
     dark: #433
 );
 
+// Stat Colors
+$stat-colors: (
+    hp: #d22,
+    attack: #d72,
+    defense: #da2,
+    spAtk: #49f,
+    spDef: #6b5,
+    speed: #d6d,
+);
+
 
 /* The type 'buttons' should be components, they are used heavily */
 .poke-type {

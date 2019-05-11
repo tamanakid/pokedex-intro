@@ -3,6 +3,10 @@ import axios from '@/config/axios.config'
 
 const actions = {
 
+  changeCurrentPokemon: ({ commit }, regnum) => {
+    commit('UPDATE_CURRENT_POKEMON', regnum);
+  },
+
   // Perhaps it is better to do the actual filtering in a global util?
   fetchPokemonData: ({ commit, getters }, regnum) => {
     return new Promise((resolve, reject) => {
@@ -40,7 +44,7 @@ const actions = {
     return new Promise((resolve, reject) => {
       axios.get("http://localhost:3000/moves?" + movesQuery)
       .then(response => {
-        commit('INSERT_MOVE_DATA', response.data);
+        commit('INSERT_MOVES_DATA', response.data);
         resolve();
       })
       .catch(() => {

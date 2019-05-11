@@ -1,0 +1,35 @@
+.stat {
+	display: grid;
+	grid-template-columns: 1fr 3fr;
+	align-items: center;
+	width: 70%;
+	color: white;
+	border-radius: 1em;
+	@each $stat, $color in $stat-colors {
+		&-#{$stat} {
+			border: 1px solid $color;
+			> .stat__bar {
+				background: rgba($color, 0.15);
+				> .stat__bar__fill {
+					z-index: 50;
+					height: 100%;
+					background: rgba($color, 0.75);
+				}
+			}
+		}
+	}
+
+	&__bar {
+		width: 95%;
+		height: 80%;
+		z-index: 40;
+		@for $value from 1 through 30 {
+			$width: percentage($value/30);
+			&__fill-#{$value} {
+				width: $width;
+			}
+		}
+	}
+}
+
+	
