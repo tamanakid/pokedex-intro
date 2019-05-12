@@ -1,0 +1,55 @@
+.move {
+	position: relative;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: 1fr 1fr;
+	grid-template-areas:
+		"name name name"
+		"type type type";
+	
+	border-radius: 2em;
+	&-type {
+		@each $type, $color in $type-colors {
+			&-#{$type} {
+				background: rgba($color, 0.1);
+				border: 0.5em solid $color;
+				color: tint($color, 40);
+				> .move__details {
+					background: rgba(shade($color, 60), 0.95);
+					border: 0.2em solid $color;
+					border-radius: 2em;
+				}
+			}
+		}
+	}
+
+	&__name {
+		grid-area: name;
+		align-self: end;
+		font-size: 1.5em;
+	}
+
+	&__type {
+		grid-area: type;
+		align-self: center;
+	}
+
+	&__details {
+		position: absolute;
+		bottom: 50%;
+		right: 0%;
+		padding: 1em;
+		font-size: 1.1em;
+		text-align: left;
+	}
+
+	.detail-modal-enter, .detail-modal-leave-to {
+		bottom: 0%;
+		opacity: 0;
+	}
+
+	.detail-modal-enter-active, .detail-modal-leave-active {
+		transition: all 0.4s ease;
+	}
+	
+}

@@ -14,9 +14,12 @@
 		</div>
 
 		<div class="pokemon-data__moves">
-			<div v-for="moveId in currentPokemon.moves" :key="moveId" class="pokemon-data__moves__move">
-				<span>{{ moveId }}</span>
+			<div class="pokemon-data__moves__title">
+				<span>Moves</span>
 			</div>
+			<template v-for="moveId in currentPokemon.moves">
+				<data-move :key="moveId" :moveId="moveId"></data-move>
+			</template>
 		</div>
 
 		<data-summary :currentPokemon="currentPokemon"></data-summary>
@@ -28,13 +31,15 @@
 <script>
 import PokemonDataSummaryView from './PokemonDataSummaryView.vue'
 import PokemonDataStatView from './PokemonDataStatView.vue'
+import PokemonDataMoveView from './PokemonDataMoveView.vue'
 
 export default {
 	name: 'PokemonDataLayout',
 
 	components: {
 		'data-summary': PokemonDataSummaryView,
-		'data-stat': PokemonDataStatView
+		'data-stat': PokemonDataStatView,
+		'data-move': PokemonDataMoveView
 		},
 
 	computed: {

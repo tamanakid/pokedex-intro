@@ -6,14 +6,6 @@
 		@each $type1, $color1 in $type-colors {
 			&-#{$type1} {
 				color: $color1;
-				//@each $type2, $color2 in $type-colors {
-				//	&-#{$type2} {
-				//		background: linear-gradient(-60deg, $color1 65%, $color2 75%);
-				//		background-clip: text;
-				//		-webkit-background-clip: text;
-				//		-webkit-text-fill-color: transparent;
-				//	}
-				//}
 			}
 		}
 	}
@@ -48,8 +40,22 @@
 	&__moves {
 		grid-area: moves;
 		display: grid;
-		font-size: 3em;
-		font-weight: bold;
+		grid-template-rows: 2em repeat(2, 1fr);
+		grid-template-columns: 1fr 1fr;
+		grid-row-gap: 2em;
+		grid-column-gap: 2em;
+		padding: 0 4em;
+		align-items: stretch;
+		grid-template-areas:
+			"title title"
+			"move move"
+			"move move";
+
+		&__title {
+			grid-area: title;
+			font-family: $font-family-main;
+			font-size: 1.5em;
+		}
 	}
 
 
@@ -75,7 +81,7 @@
 	@include media-tl-up {
 		grid-template-rows: 1fr 1fr;
 		grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-		grid-row-gap: 2em;
+		grid-row-gap: 2.5em;
 		grid-template-areas:
 			"stats stats stats stats img img"
 			"moves moves moves moves summary summary";
