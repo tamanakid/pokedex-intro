@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PokedexLayout Has expected HTML structure 1`] = `
+<div
+  class="pokedex"
+>
+  <div
+    class="pokedex__title"
+  >
+    <span>
+      National Pokedex
+    </span>
+  </div>
+   
+  <!---->
+   
+  <!---->
+</div>
+`;
